@@ -1,0 +1,32 @@
+﻿@model Medical_Corporation_Hospital.ViewModels.HospitalDetailsViewModel
+@{
+    ViewBag.Title = "myHospitals";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Hospitals</h2>
+<table class="table">
+<thead>
+<tr>
+    <th >Id</th>
+    <th >Name</th>
+    <th >City</th>
+    <th >No Of Doctors</th>
+    <th >No Of Patients</th>
+</tr>
+</thead>
+<tbody>
+@foreach (var hospital in Model.hospital)
+{
+    
+    <tr>
+        <td >@hospital.Id</td>         
+        <td >@hospital.Name</td>         
+        <td >@hospital.City</td>         
+        <td >@hospital.NoOfDoctors</td>         
+        <td >@hospital.NoOfPatients</td>         
+    </tr>
+
+}
+</tbody>
+</table>
