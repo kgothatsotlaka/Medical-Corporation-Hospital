@@ -13,31 +13,31 @@ namespace Medical_Corporation_Hospital.Controllers
         // GET: Display
         public ActionResult Hospitals()
         {
-            var myHospitals = new List<Hospital>
-            {
-                new Hospital{City="Pretoria",Id=1, NoOfDoctors = 5, NoOfPatients = 15, Name = "Steve Biko"},
-                new Hospital{City="Pretoria",Id=2, NoOfDoctors = 7, NoOfPatients = 20, Name = "Tshwane Hospital"},
-                new Hospital{City="Pretoria",Id=3, NoOfDoctors = 5, NoOfPatients = 21, Name = "Tuks Dental Hospital"},
-            };
+//            var myHospitals = new List<Hospital>
+//            {
+//                new Hospital{City="Pretoria",Id=1, NoOfDoctors = 5, NoOfPatients = 15, Name = "Steve Biko"},
+//                new Hospital{City="Pretoria",Id=2, NoOfDoctors = 7, NoOfPatients = 20, Name = "Tshwane Hospital"},
+//                new Hospital{City="Pretoria",Id=3, NoOfDoctors = 5, NoOfPatients = 21, Name = "Tuks Dental Hospital"},
+//            };
 
-            var HopitalList = new HospitalDetailsViewModel {hospital = myHospitals};
+//            var HopitalList = new HospitalDetailsViewModel {hospital = myHospitals};
            
-            return View(HopitalList);
+            return View();
         }
         public ActionResult Wards()
         {
-            var myWards = new List<Ward>
-            {
-                new Ward{HospitalName = "Steve Biko", WardName = "BC", WardId = 1, NoOfBeds = 7},
-                new Ward{HospitalName = "Steve Biko", WardName = "A", WardId = 2, NoOfBeds = 8},
-            };
-            var WardList = new HospitalDetailsViewModel {ward = myWards};
-           
-                
-              
-
-            
-            return View(WardList);
+//            var myWards = new List<Ward>
+//            {
+//                new Ward{HospitalName = "Steve Biko", WardName = "BC", WardId = 1, NoOfBeds = 7},
+//                new Ward{HospitalName = "Steve Biko", WardName = "A", WardId = 2, NoOfBeds = 8},
+//            };
+//            var WardList = new HospitalDetailsViewModel {ward = myWards};
+//           
+//                
+//              
+//
+//            
+            return View();
         }
     }
 }

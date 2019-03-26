@@ -5,12 +5,14 @@ using System.Web;
 
 namespace Medical_Corporation_Hospital.Models
 {
-    public class Ward
+    public class City
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public Hospital Hospital { get; set; }
-        public ICollection<Bed> Beds { get; set; }
+        public string Province { get; set; }
+        public string Country { get; set; }
+       
+        public ICollection<Hospital> Hospitals { get; set; }
 
 
     }
