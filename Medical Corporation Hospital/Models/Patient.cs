@@ -15,6 +15,7 @@ namespace Medical_Corporation_Hospital.Models
         public Hospital Hospital { get; set; }
         public Ward Ward { get; set; }
         public Bed Bed { get; set; }
+        public  ICollection<Doctor> Doctors { get; set; }
 
     }
 }
