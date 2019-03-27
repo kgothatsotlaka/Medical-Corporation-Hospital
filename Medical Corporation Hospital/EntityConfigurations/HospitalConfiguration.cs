@@ -14,6 +14,23 @@ namespace Medical_Corporation_Hospital.EntityConfigurations
             Property(h => h.Name)
                 .IsRequired()
                 .HasMaxLength(250);
+
+            HasMany(h => h.Patients)
+                .WithRequired(p => p.Hospital)
+                .HasForeignKey(p => p.HospitalId);
+            HasMany(h => h.Wards)
+                .WithRequired(w => w.Hospital)
+                .HasForeignKey(w => w.HospitalId);
+            HasMany(h => h.Doctors)
+                .WithMany(d => d.Hospitals)
+                .Map(m =>
+                {
+                    m.ToTable("Works");
+                    m.MapLeftKey("HospitalId");
+                    m.MapRightKey("DoctorsId");
+                });
+
+
         }
     }
 }

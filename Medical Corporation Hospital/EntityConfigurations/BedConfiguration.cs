@@ -14,6 +14,8 @@ namespace Medical_Corporation_Hospital.EntityConfigurations
             Property(b => b.Occupied)
                 .IsRequired()
                 .HasMaxLength(10);
+            HasRequired(b => b.Patient)
+                .WithRequiredPrincipal(b => b.Bed);
 
         }
     }

@@ -23,6 +23,18 @@ namespace Medical_Corporation_Hospital.EntityConfigurations
             Property(d => d.Telephone)
                 .IsRequired()
                 .HasMaxLength(10);
+
+            /*
+             *
+             */
+            HasMany(d => d.Patients)
+                .WithMany(p => p.Doctors)
+                .Map(m =>
+                {
+                    m.ToTable("Appointments");
+                    m.MapLeftKey("DoctorId");
+                    m.MapRightKey("PatientId");
+                });
         }
     }
 }

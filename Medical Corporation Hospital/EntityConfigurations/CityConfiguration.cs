@@ -21,6 +21,10 @@ namespace Medical_Corporation_Hospital.EntityConfigurations
                 .IsRequired()
                 .HasMaxLength(250);
 
+            HasMany(c => c.Hospitals)
+                .WithRequired(h => h.City)
+                .HasForeignKey(c => c.CityId);
+
 
 
 

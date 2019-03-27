@@ -23,12 +23,14 @@ namespace Medical_Corporation_Hospital.Models
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Configurations.Add(new HospitalConfiguration());
             modelBuilder.Configurations.Add(new BedConfiguration());
-            modelBuilder.Configurations.Add(new CityConfiguration());
-            modelBuilder.Configurations.Add(new DoctorConfiguration());
-            modelBuilder.Configurations.Add(new PatientConfiguration());
             modelBuilder.Configurations.Add(new WardConfiguration());
+           modelBuilder.Configurations.Add(new CityConfiguration());
+           modelBuilder.Configurations.Add(new HospitalConfiguration());
+           modelBuilder.Configurations.Add(new DoctorConfiguration());
+            modelBuilder.Configurations.Add(new PatientConfiguration());
+           
+                    
         }
     }
 }

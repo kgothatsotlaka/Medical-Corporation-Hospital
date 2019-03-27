@@ -18,8 +18,11 @@ namespace Medical_Corporation_Hospital.Models
         public string Address { get; set; }
         public  string Telephone { get; set; }
         public virtual Hospital Hospital { get; set; }
-        public virtual Ward Ward { get; set; }
-        public virtual Bed Bed { get; set; }
+        public int HospitalId { get; set; }
+        public  Ward Ward { get; set; }
+        public int WardId { get; set; }
+        public  Bed Bed { get; set; }
+        public int BedId { get; set; }
         public virtual ICollection<Doctor> Doctors { get; set; } // still not sure why we include virtual
 
     }
