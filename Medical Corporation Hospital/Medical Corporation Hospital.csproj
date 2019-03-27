@@ -135,6 +135,12 @@
     <Compile Include="Controllers\DisplayController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HospitalsController.cs" />
+    <Compile Include="EntityConfigurations\BedConfiguration.cs" />
+    <Compile Include="EntityConfigurations\CityConfiguration.cs" />
+    <Compile Include="EntityConfigurations\DoctorConfiguration.cs" />
+    <Compile Include="EntityConfigurations\HospitalConfiguration.cs" />
+    <Compile Include="EntityConfigurations\PatientConfiguration.cs" />
+    <Compile Include="EntityConfigurations\WardConfiguration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -149,6 +155,10 @@
     <Compile Include="Migrations\201903271120174_EditTablesToIncludeVirtualKeyWord.cs" />
     <Compile Include="Migrations\201903271120174_EditTablesToIncludeVirtualKeyWord.Designer.cs">
       <DependentUpon>201903271120174_EditTablesToIncludeVirtualKeyWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903271223309_AddPropartyConfigurationsToEntities.cs" />
+    <Compile Include="Migrations\201903271223309_AddPropartyConfigurationsToEntities.Designer.cs">
+      <DependentUpon>201903271223309_AddPropartyConfigurationsToEntities.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bed.cs" />
@@ -228,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903271120174_EditTablesToIncludeVirtualKeyWord.resx">
       <DependentUpon>201903271120174_EditTablesToIncludeVirtualKeyWord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903271223309_AddPropartyConfigurationsToEntities.resx">
+      <DependentUpon>201903271223309_AddPropartyConfigurationsToEntities.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
