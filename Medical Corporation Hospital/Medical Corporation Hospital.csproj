@@ -146,6 +146,10 @@
     <Compile Include="Migrations\201903261254554_AddDbSetsToDataModel.Designer.cs">
       <DependentUpon>201903261254554_AddDbSetsToDataModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903271120174_EditTablesToIncludeVirtualKeyWord.cs" />
+    <Compile Include="Migrations\201903271120174_EditTablesToIncludeVirtualKeyWord.Designer.cs">
+      <DependentUpon>201903271120174_EditTablesToIncludeVirtualKeyWord.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bed.cs" />
     <Compile Include="Models\City.cs" />
@@ -221,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903261254554_AddDbSetsToDataModel.resx">
       <DependentUpon>201903261254554_AddDbSetsToDataModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903271120174_EditTablesToIncludeVirtualKeyWord.resx">
+      <DependentUpon>201903271120174_EditTablesToIncludeVirtualKeyWord.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

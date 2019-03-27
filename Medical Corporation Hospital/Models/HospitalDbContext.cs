@@ -9,9 +9,8 @@ namespace Medical_Corporation_Hospital.Models
     public class HospitalDbContext: DbContext
     {
         public HospitalDbContext()
-            : base("name=MCH_DB_ConnectingString")
-        {
-        }
+            : base("name=MCH_DB_ConnectingString") { }
+       
         public virtual  DbSet<Bed> Beds { get; set; }
         public virtual  DbSet<City> Cities { get; set; }
         public virtual  DbSet<Doctor> Doctors { get; set; }
