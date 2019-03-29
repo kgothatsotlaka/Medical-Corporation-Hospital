@@ -23,7 +23,8 @@ namespace Medical_Corporation_Hospital.EntityConfigurations
 
             HasMany(c => c.Hospitals)
                 .WithRequired(h => h.City)
-                .HasForeignKey(c => c.CityId);
+                .HasForeignKey(c => c.CityId)
+                .WillCascadeOnDelete(false);
 
 
 

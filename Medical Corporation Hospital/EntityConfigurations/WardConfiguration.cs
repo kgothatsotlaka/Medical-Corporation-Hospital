@@ -14,11 +14,26 @@ namespace Medical_Corporation_Hospital.EntityConfigurations
             Property(w => w.Name)
                 .IsRequired();
 
-            HasMany(w => w.Beds)
-                .WithRequired(b => b.Ward)
-                .HasForeignKey(b => b.WardId);
-            HasRequired(w => w.Patient)
-                .WithRequiredPrincipal(w => w.Ward);
+
+            HasRequired(w => w.Hospital)
+                .WithMany(h => h.Wards)
+                .HasForeignKey(w => w.HospitalId)
+                .WillCascadeOnDelete(false);
+
+
+
+
+            /*  HasMany(w => w.Beds)
+                  .WithMany(b => b.Wards)
+                  .Map(m =>
+                  {
+                      m.ToTable("WardBeds");
+                      m.MapLeftKey("WardId");
+                      m.MapRightKey("BedId");
+                  });
+              HasRequired(w => w.Patient)
+                  .WithRequiredPrincipal(w => w.Ward);
+                  */
         }
     }
 }

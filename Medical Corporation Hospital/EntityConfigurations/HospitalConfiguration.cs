@@ -15,12 +15,11 @@ namespace Medical_Corporation_Hospital.EntityConfigurations
                 .IsRequired()
                 .HasMaxLength(250);
 
-            HasMany(h => h.Patients)
-                .WithRequired(p => p.Hospital)
-                .HasForeignKey(p => p.HospitalId);
-            HasMany(h => h.Wards)
-                .WithRequired(w => w.Hospital)
-                .HasForeignKey(w => w.HospitalId);
+            HasRequired(h => h.City)
+                .WithMany(c => c.Hospitals)
+                .HasForeignKey(c => c.CityId)
+                .WillCascadeOnDelete(false);
+
             HasMany(h => h.Doctors)
                 .WithMany(d => d.Hospitals)
                 .Map(m =>
@@ -30,7 +29,7 @@ namespace Medical_Corporation_Hospital.EntityConfigurations
                     m.MapRightKey("DoctorsId");
                 });
 
-
+           
         }
     }
 }

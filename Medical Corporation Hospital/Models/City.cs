@@ -9,7 +9,7 @@ namespace Medical_Corporation_Hospital.Models
     {
         public City()
         {
-            Hospitals =  new List<Hospital>();
+            Hospitals =  new HashSet<Hospital>();
         }
         public int Id { get; set; }
         public string Name { get; set; }

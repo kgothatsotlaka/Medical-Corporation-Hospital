@@ -3,7 +3,7 @@ namespace Medical_Corporation_Hospital.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialModel : DbMigration
+    public partial class EntitiesElephantStyle : DbMigration
     {
         public override void Up()
         {
@@ -14,11 +14,11 @@ namespace Medical_Corporation_Hospital.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Number = c.Int(nullable: false),
                         Occupied = c.String(nullable: false, maxLength: 10),
-                        WardId = c.Int(nullable: false),
+                        wardId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Wards", t => t.WardId, cascadeDelete: true)
-                .Index(t => t.WardId);
+                .ForeignKey("dbo.Wards", t => t.wardId)
+                .Index(t => t.wardId);
             
             CreateTable(
                 "dbo.Patients",
@@ -31,14 +31,14 @@ namespace Medical_Corporation_Hospital.Migrations
                         Telephone = c.String(nullable: false, maxLength: 10),
                         HospitalId = c.Int(nullable: false),
                         WardId = c.Int(nullable: false),
-                        BedId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Hospitals", t => t.HospitalId, cascadeDelete: true)
-                .ForeignKey("dbo.Wards", t => t.Id)
+                .ForeignKey("dbo.Hospitals", t => t.HospitalId)
+                .ForeignKey("dbo.Wards", t => t.WardId)
                 .ForeignKey("dbo.Beds", t => t.Id)
                 .Index(t => t.Id)
-                .Index(t => t.HospitalId);
+                .Index(t => t.HospitalId)
+                .Index(t => t.WardId);
             
             CreateTable(
                 "dbo.Doctors",
@@ -61,7 +61,7 @@ namespace Medical_Corporation_Hospital.Migrations
                         CityId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Cities", t => t.CityId, cascadeDelete: true)
+                .ForeignKey("dbo.Cities", t => t.CityId)
                 .Index(t => t.CityId);
             
             CreateTable(
@@ -84,7 +84,7 @@ namespace Medical_Corporation_Hospital.Migrations
                         HospitalId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Hospitals", t => t.HospitalId, cascadeDelete: true)
+                .ForeignKey("dbo.Hospitals", t => t.HospitalId)
                 .Index(t => t.HospitalId);
             
             CreateTable(
@@ -104,38 +104,39 @@ namespace Medical_Corporation_Hospital.Migrations
                 "dbo.Appointments",
                 c => new
                     {
-                        DoctorId = c.Int(nullable: false),
                         PatientId = c.Int(nullable: false),
+                        DoctorsId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.DoctorId, t.PatientId })
-                .ForeignKey("dbo.Doctors", t => t.DoctorId, cascadeDelete: true)
+                .PrimaryKey(t => new { t.PatientId, t.DoctorsId })
                 .ForeignKey("dbo.Patients", t => t.PatientId, cascadeDelete: true)
-                .Index(t => t.DoctorId)
-                .Index(t => t.PatientId);
+                .ForeignKey("dbo.Doctors", t => t.DoctorsId, cascadeDelete: true)
+                .Index(t => t.PatientId)
+                .Index(t => t.DoctorsId);
             
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.Beds", "wardId", "dbo.Wards");
             DropForeignKey("dbo.Patients", "Id", "dbo.Beds");
-            DropForeignKey("dbo.Appointments", "PatientId", "dbo.Patients");
-            DropForeignKey("dbo.Appointments", "DoctorId", "dbo.Doctors");
-            DropForeignKey("dbo.Wards", "HospitalId", "dbo.Hospitals");
-            DropForeignKey("dbo.Patients", "Id", "dbo.Wards");
-            DropForeignKey("dbo.Beds", "WardId", "dbo.Wards");
+            DropForeignKey("dbo.Patients", "WardId", "dbo.Wards");
             DropForeignKey("dbo.Patients", "HospitalId", "dbo.Hospitals");
+            DropForeignKey("dbo.Appointments", "DoctorsId", "dbo.Doctors");
+            DropForeignKey("dbo.Appointments", "PatientId", "dbo.Patients");
+            DropForeignKey("dbo.Wards", "HospitalId", "dbo.Hospitals");
             DropForeignKey("dbo.Works", "DoctorsId", "dbo.Doctors");
             DropForeignKey("dbo.Works", "HospitalId", "dbo.Hospitals");
             DropForeignKey("dbo.Hospitals", "CityId", "dbo.Cities");
+            DropIndex("dbo.Appointments", new[] { "DoctorsId" });
             DropIndex("dbo.Appointments", new[] { "PatientId" });
-            DropIndex("dbo.Appointments", new[] { "DoctorId" });
             DropIndex("dbo.Works", new[] { "DoctorsId" });
             DropIndex("dbo.Works", new[] { "HospitalId" });
             DropIndex("dbo.Wards", new[] { "HospitalId" });
             DropIndex("dbo.Hospitals", new[] { "CityId" });
+            DropIndex("dbo.Patients", new[] { "WardId" });
             DropIndex("dbo.Patients", new[] { "HospitalId" });
             DropIndex("dbo.Patients", new[] { "Id" });
-            DropIndex("dbo.Beds", new[] { "WardId" });
+            DropIndex("dbo.Beds", new[] { "wardId" });
             DropTable("dbo.Appointments");
             DropTable("dbo.Works");
             DropTable("dbo.Wards");

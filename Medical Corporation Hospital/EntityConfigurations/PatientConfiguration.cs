@@ -22,7 +22,26 @@ namespace Medical_Corporation_Hospital.EntityConfigurations
                 .HasMaxLength(10);
             Property(p => p.AdmissionTime)
                 .IsRequired();
-          
+
+            HasRequired(p => p.Hospital)
+                .WithMany(h => h.Patients)
+                .HasForeignKey(h => h.HospitalId)
+                .WillCascadeOnDelete(false);
+            HasRequired(p => p.Ward)
+                .WithMany(w => w.Patients)
+                .HasForeignKey(w => w.WardId)
+                .WillCascadeOnDelete(false);
+
+            HasMany(p => p.Doctors)
+                .WithMany(d => d.Patients)
+                .Map(m =>
+                {
+                    m.ToTable("Appointments");
+                    m.MapLeftKey("PatientId");
+                    m.MapRightKey("DoctorsId");
+                });
+
+
 
 
 

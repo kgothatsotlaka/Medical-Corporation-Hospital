@@ -14,8 +14,15 @@ namespace Medical_Corporation_Hospital.EntityConfigurations
             Property(b => b.Occupied)
                 .IsRequired()
                 .HasMaxLength(10);
+
+
+            HasRequired(b => b.Ward)
+                .WithMany(w => w.Beds)
+                .HasForeignKey(w => w.wardId)
+                .WillCascadeOnDelete(false);
+
             HasRequired(b => b.Patient)
-                .WithRequiredPrincipal(b => b.Bed);
+                .WithRequiredPrincipal(p => p.Bed);
 
         }
     }

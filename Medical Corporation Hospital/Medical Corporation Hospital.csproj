@@ -144,9 +144,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201903261234194_InitialModel.cs" />
-    <Compile Include="Migrations\201903261234194_InitialModel.Designer.cs">
-      <DependentUpon>201903261234194_InitialModel.cs</DependentUpon>
+    <Compile Include="Migrations\201903282310450_EntitiesElephantStyle.cs" />
+    <Compile Include="Migrations\201903282310450_EntitiesElephantStyle.Designer.cs">
+      <DependentUpon>201903282310450_EntitiesElephantStyle.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bed.cs" />
@@ -218,8 +218,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201903261234194_InitialModel.resx">
-      <DependentUpon>201903261234194_InitialModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201903282310450_EntitiesElephantStyle.resx">
+      <DependentUpon>201903282310450_EntitiesElephantStyle.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
