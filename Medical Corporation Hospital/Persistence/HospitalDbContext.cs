@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
-using Medical_Corporation_Hospital.EntityConfigurations;
+﻿using System.Data.Entity;
+using Medical_Corporation_Hospital.Core.Domain;
+using Medical_Corporation_Hospital.Persistence.EntityConfigurations;
 
-namespace Medical_Corporation_Hospital.Models
+namespace Medical_Corporation_Hospital.Persistence
 {
     public class HospitalDbContext: DbContext
     {
         public HospitalDbContext()
-            : base("name=MCH_DB_ConnectingString") { }
+            : base("name=MCH_DB_ConnectingString")
+        {
+            this.Configuration.LazyLoadingEnabled = false;
+        }
        
         public virtual  DbSet<Bed> Beds { get; set; }
         public virtual  DbSet<City> Cities { get; set; }

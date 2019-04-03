@@ -2,7 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity.Migrations;
-using Medical_Corporation_Hospital.Models;
+using Medical_Corporation_Hospital.Core.Domain;
+using Medical_Corporation_Hospital.Persistence;
 using Newtonsoft.Json.Linq;
 
 namespace Medical_Corporation_Hospital.Migrations

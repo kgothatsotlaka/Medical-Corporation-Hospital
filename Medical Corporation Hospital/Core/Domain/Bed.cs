@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Medical_Corporation_Hospital.Models
+﻿namespace Medical_Corporation_Hospital.Core.Domain
 {
     public class Bed
     {

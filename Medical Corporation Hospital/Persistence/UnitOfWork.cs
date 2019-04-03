@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using Medical_Corporation_Hospital.Core;
 using Medical_Corporation_Hospital.Core.Repositories;
-using Medical_Corporation_Hospital.Models;
 using Medical_Corporation_Hospital.Persistence.Repositories;
 
 namespace Medical_Corporation_Hospital.Persistence

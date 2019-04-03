@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Web;
-using Medical_Corporation_Hospital.Models;
+﻿using System.Data.Entity.ModelConfiguration;
+using Medical_Corporation_Hospital.Core.Domain;
 
-namespace Medical_Corporation_Hospital.EntityConfigurations
+namespace Medical_Corporation_Hospital.Persistence.EntityConfigurations
 {
     public class PatientConfiguration: EntityTypeConfiguration<Patient>
     {
