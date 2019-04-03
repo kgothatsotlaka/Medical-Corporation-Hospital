@@ -198,7 +198,9 @@ namespace Medical_Corporation_Hospital.Migrations
                     Telephone = "0123456789",
                     HospitalId = 1,
                     WardId = 1,
-                    //Bed = bed //Google how to do 1-1
+                    
+
+
                     Doctors = new Collection<Doctor>()
                     {
                        doctors["Ledwaba"]

@@ -135,12 +135,20 @@
     <Compile Include="Controllers\DisplayController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HospitalsController.cs" />
-    <Compile Include="EntityConfigurations\BedConfiguration.cs" />
-    <Compile Include="EntityConfigurations\CityConfiguration.cs" />
-    <Compile Include="EntityConfigurations\DoctorConfiguration.cs" />
-    <Compile Include="EntityConfigurations\HospitalConfiguration.cs" />
-    <Compile Include="EntityConfigurations\PatientConfiguration.cs" />
-    <Compile Include="EntityConfigurations\WardConfiguration.cs" />
+    <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Core\Repositories\IBedRepository.cs" />
+    <Compile Include="Core\Repositories\ICityRepository.cs" />
+    <Compile Include="Core\Repositories\IDoctorRepository.cs" />
+    <Compile Include="Core\Repositories\IHospitalRepository.cs" />
+    <Compile Include="Core\Repositories\IPatientRepository.cs" />
+    <Compile Include="Core\Repositories\IRepository.cs" />
+    <Compile Include="Core\Repositories\IWardRepository.cs" />
+    <Compile Include="Persistence\EntityConfigurations\BedConfiguration.cs" />
+    <Compile Include="Persistence\EntityConfigurations\CityConfiguration.cs" />
+    <Compile Include="Persistence\EntityConfigurations\DoctorConfiguration.cs" />
+    <Compile Include="Persistence\EntityConfigurations\HospitalConfiguration.cs" />
+    <Compile Include="Persistence\EntityConfigurations\PatientConfiguration.cs" />
+    <Compile Include="Persistence\EntityConfigurations\WardConfiguration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -148,14 +156,26 @@
     <Compile Include="Migrations\201903282310450_EntitiesElephantStyle.Designer.cs">
       <DependentUpon>201903282310450_EntitiesElephantStyle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903291220283_EntitiesElephantStyle1.cs" />
+    <Compile Include="Migrations\201903291220283_EntitiesElephantStyle1.Designer.cs">
+      <DependentUpon>201903291220283_EntitiesElephantStyle1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Bed.cs" />
-    <Compile Include="Models\City.cs" />
-    <Compile Include="Models\Doctor.cs" />
-    <Compile Include="Models\Hospital.cs" />
-    <Compile Include="Models\HospitalDbContext.cs" />
-    <Compile Include="Models\Patient.cs" />
-    <Compile Include="Models\Ward.cs" />
+    <Compile Include="Core\Domain\Bed.cs" />
+    <Compile Include="Core\Domain\City.cs" />
+    <Compile Include="Core\Domain\Doctor.cs" />
+    <Compile Include="Core\Domain\Hospital.cs" />
+    <Compile Include="Persistence\HospitalDbContext.cs" />
+    <Compile Include="Core\Domain\Patient.cs" />
+    <Compile Include="Core\Domain\Ward.cs" />
+    <Compile Include="Persistence\Repositories\BedRepository.cs" />
+    <Compile Include="Persistence\Repositories\CityRepository.cs" />
+    <Compile Include="Persistence\Repositories\DoctorRepository.cs" />
+    <Compile Include="Persistence\Repositories\HospitalRepository.cs" />
+    <Compile Include="Persistence\Repositories\PatientRepository.cs" />
+    <Compile Include="Persistence\Repositories\Repository.cs" />
+    <Compile Include="Persistence\Repositories\WardRepository.cs" />
+    <Compile Include="Persistence\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\HospitalDetailsViewModel.cs" />
   </ItemGroup>
@@ -203,6 +223,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -220,6 +241,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201903282310450_EntitiesElephantStyle.resx">
       <DependentUpon>201903282310450_EntitiesElephantStyle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903291220283_EntitiesElephantStyle1.resx">
+      <DependentUpon>201903291220283_EntitiesElephantStyle1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

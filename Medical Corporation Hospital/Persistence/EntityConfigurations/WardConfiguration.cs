@@ -23,17 +23,7 @@ namespace Medical_Corporation_Hospital.EntityConfigurations
 
 
 
-            /*  HasMany(w => w.Beds)
-                  .WithMany(b => b.Wards)
-                  .Map(m =>
-                  {
-                      m.ToTable("WardBeds");
-                      m.MapLeftKey("WardId");
-                      m.MapRightKey("BedId");
-                  });
-              HasRequired(w => w.Patient)
-                  .WithRequiredPrincipal(w => w.Ward);
-                  */
+            
         }
     }
 }

@@ -21,8 +21,8 @@ namespace Medical_Corporation_Hospital.EntityConfigurations
                 .HasForeignKey(w => w.wardId)
                 .WillCascadeOnDelete(false);
 
-            HasRequired(b => b.Patient)
-                .WithRequiredPrincipal(p => p.Bed);
+            HasOptional(b => b.Patient)
+                .WithRequired(p => p.Bed);
 
         }
     }

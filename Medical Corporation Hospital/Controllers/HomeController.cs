@@ -19,7 +19,7 @@ namespace Medical_Corporation_Hospital.Controllers
 
             return View();
         }
-
+        
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

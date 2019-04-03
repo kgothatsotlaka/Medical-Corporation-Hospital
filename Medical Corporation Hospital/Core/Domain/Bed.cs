@@ -25,6 +25,7 @@ namespace Medical_Corporation_Hospital.Models
 
 
 
+
         // public virtual ICollection<Ward> Wards { get; set; }
 
         //  public Patient Patient { get; set; }
