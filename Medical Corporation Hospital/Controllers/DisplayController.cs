@@ -1,7 +1,9 @@
 ﻿using System.Web.Mvc;
 using Medical_Corporation_Hospital.Core;
 using System;
+using System.Linq;
 using Medical_Corporation_Hospital.Core.Domain;
+using Medical_Corporation_Hospital.Persistence;
 
 namespace Medical_Corporation_Hospital.Controllers
 {
@@ -9,18 +11,30 @@ namespace Medical_Corporation_Hospital.Controllers
     {
         // GET: Display
 
-        private readonly IUnitOfWork _unitOfWork;
+      //  private readonly IUnitOfWork _unitOfWork;
+        private readonly HospitalDbContext _context;
 
         
-        public DisplayController(IUnitOfWork unitOfWork)
+        public DisplayController()
         {
-            _unitOfWork = unitOfWork;
+            _context = new HospitalDbContext();
         }
        
 
         public ActionResult Hospitals()
         {
-            var hospitals = _unitOfWork.Hospitals.GetAll();
+            var hospitals = _context.Hospitals
+                                            .Include("Wards")
+                                            .Include("City")
+                                            .Include("Patients")
+                                            .Include("Doctors")
+                                            .ToList();
+            
+
+            var wards = _context.Wards.Include("Hospital");
+
+           // var wardsId = wards.W
+            //hospitals.Include()
             return View(hospitals);
 
            

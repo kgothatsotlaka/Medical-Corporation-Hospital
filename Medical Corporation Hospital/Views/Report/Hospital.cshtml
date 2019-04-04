@@ -1,0 +1,61 @@
+﻿@using Medical_Corporation_Hospital.Core.Domain
+@model IEnumerable<Medical_Corporation_Hospital.Core.Domain.Hospital>
+@{
+    ViewBag.Title = "Hospital";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var hospital in Model)
+{
+    <div style="text-align: center">
+        <div>
+            <h4 style="font-weight: bold">HOSPITAL'S DAILY REPORT</h4>
+            <text>HOSPITAL NAME: @hospital.Name </text><br/>
+            <text>CITY: @hospital.City.Name</text><br/>
+            <text>NUMBER OF WARDS: @hospital.Wards.Count</text><br/>
+        </div>
+    </div>
+    <hr style="border-top: dotted 1px;"/>
+}
+<div>
+    <h4 style="text-align: center">DOCTORS WORKING AT HOSPITAL</h4>
+    @foreach (var hospital in Model)
+    {
+        foreach (var doctor in hospital.Doctors)
+        {
+            <p >Dr @doctor.Initials @doctor.LastName</p>
+        }
+    }
+
+</div>
+<hr style="border-top: dotted 1px;"/>
+<div>
+    <h4 style="text-align: center">WARD DETAILS</h4>
+    @foreach (var hospital in Model)
+    {
+        <table class="table">
+            <thead>
+            <tr>
+
+                <th >WARD NUMBER</th>
+                <th >NUMBER OF BEDS IN WARD</th>
+                <th >NUMBER OF BEDS OCCUPIED</th>
+
+
+            </tr>
+            </thead>
+            @foreach (var ward in hospital.Wards)
+            {
+                <tr>
+                    <td>@ward.Name</td>
+                    <td>@ward.Beds.Count</td>
+                    <td>2</td>
+
+
+
+                </tr>
+            }
+
+        </table>
+    }
+</div>

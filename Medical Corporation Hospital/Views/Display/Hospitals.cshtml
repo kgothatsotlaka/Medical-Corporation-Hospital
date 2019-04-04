@@ -8,10 +8,14 @@
 <table class="table">
 <thead>
 <tr>
-    <th >Id</th>
+    
     <th >Name</th>
-   
-    <
+    <th >City</th>
+    <th >Wards</th>
+    <th >Doctors</th>
+    <th >Patients</th>
+
+
 </tr>
 </thead>
 <tbody>
@@ -19,10 +23,15 @@
 {
     
     <tr>
-        <td >@hospital.Id</td>         
-        <td >@hospital.Name</td>         
-      
-         
+           
+        <td >@hospital.Name</td>        
+        <td >@hospital.City.Name</td> 
+        <td >@hospital.Wards.Count</td> 
+        <td >@hospital.Doctors.Count</td> 
+        <td >@hospital.Patients.Count</td> 
+
+        .
+
     </tr>
 
 }
