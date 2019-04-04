@@ -1,0 +1,8 @@
+Note All of these scripts are ran on Package Manager Console,
+ To open Package Manager Console in your Visual Studio Navigate to 
+ Tools> Nuget Package Manager > Package Manager Console.
+
+
+// To Generate T-Sql Script From EF6 COde first
+Update-Database -Script -SourceMigration:$InitialDatabase
+
