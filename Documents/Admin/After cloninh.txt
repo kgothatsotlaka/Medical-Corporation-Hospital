@@ -1,0 +1,2 @@
+Update-Package -reinstal
+Install-Package EntityFramework

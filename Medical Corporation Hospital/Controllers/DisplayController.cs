@@ -18,7 +18,7 @@ namespace Medical_Corporation_Hospital.Controllers
         }
        
 
-        public ActionResult Index()
+        public ActionResult Hospitals()
         {
             var hospitals = _unitOfWork.Hospitals.GetAll();
             return View(hospitals);
