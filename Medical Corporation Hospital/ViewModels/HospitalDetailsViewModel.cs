@@ -8,7 +8,12 @@ namespace Medical_Corporation_Hospital.ViewModels
 {
     public class HospitalDetailsViewModel
     {
-        public List<Hospital> hospital { get; set; }
-        public List<Ward> ward { get; set; }
+        public Hospital Hospital { get; set; }
+        public IEnumerable<Ward> Wards { get; set; }
+        public List<Bed> Beds { get; set; }
+        public ICollection<Hospital> WorksAt { get; set; }
+        public City City { get; set; }
+       
+
     }
 }

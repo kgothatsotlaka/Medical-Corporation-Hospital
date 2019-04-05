@@ -133,19 +133,19 @@ namespace Medical_Corporation_Hospital.Migrations
                 new Ward
                 {
                     Id = 1,
-                    Name = "XX",
+                    Name = "MM1",
                     HospitalId = 1
                 },
                 new Ward
                 {
                     Id = 2,
-                    Name = "XX",
+                    Name = "MM3",
                     HospitalId = 1
                 },
                 new Ward
                 {
                     Id = 3,
-                    Name = "XX",
+                    Name = "MM3",
                     HospitalId = 1
                 }
             };
@@ -178,7 +178,25 @@ namespace Medical_Corporation_Hospital.Migrations
                     Occupied = "Yes",
                     wardId = 1
 
+                },
+                new Bed
+                {
+                    Id = 3,
+                    Number = 3,
+                    Occupied = "Yes",
+                    wardId = 2
+
+                },
+                new Bed
+                {
+                    Id = 4,
+                    Number = 4,
+                    Occupied = "Yes",
+                    wardId = 2
+
                 }
+
+
 
             };
 

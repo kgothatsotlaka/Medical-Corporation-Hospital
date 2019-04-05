@@ -15,6 +15,7 @@ namespace Medical_Corporation_Hospital.Core.Domain
         public string Address { get; set; }
         public string Telephone { get; set; }
         public virtual ICollection<Hospital> Hospitals { get; set; }
+       // public Hospital HospitalId { get; set; }
       public virtual ICollection<Patient> Patients { get; set; }
 
 

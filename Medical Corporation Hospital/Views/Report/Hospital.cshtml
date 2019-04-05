@@ -1,61 +1,73 @@
-﻿@using Medical_Corporation_Hospital.Core.Domain
-@model IEnumerable<Medical_Corporation_Hospital.Core.Domain.Hospital>
+﻿@model Medical_Corporation_Hospital.ViewModels.HospitalDetailsViewModel
 @{
     ViewBag.Title = "Hospital";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@foreach (var hospital in Model)
-{
-    <div style="text-align: center">
-        <div>
-            <h4 style="font-weight: bold">HOSPITAL'S DAILY REPORT</h4>
-            <text>HOSPITAL NAME: @hospital.Name </text><br/>
-            <text>CITY: @hospital.City.Name</text><br/>
-            <text>NUMBER OF WARDS: @hospital.Wards.Count</text><br/>
-        </div>
+
+<div style="text-align: center">
+    <div>
+        <h4 style="font-weight: bold">HOSPITAL'S DAILY REPORT</h4>
+        <text>HOSPITAL NAME: @Model.Hospital.Name </text><br/>
+        <text>CITY: @Model.City.Name</text><br/>
+        <text>NUMBER OF WARDS: @Model.Wards.Count()</text><br/>
     </div>
-    <hr style="border-top: dotted 1px;"/>
-}
+</div>
+<hr style="border-top: dotted 1px;"/>
+
 <div>
-    <h4 style="text-align: center">DOCTORS WORKING AT HOSPITAL</h4>
-    @foreach (var hospital in Model)
+    <h4 style="text-align: center ;font-weight: bold">DOCTORS WORKING AT Model</h4>
+
+    @foreach (var doctorsHospital in Model.WorksAt)
     {
-        foreach (var doctor in hospital.Doctors)
+        if (doctorsHospital.Name.Contains(Model.Hospital.Name))
         {
-            <p >Dr @doctor.Initials @doctor.LastName</p>
+            foreach (var doctor in doctorsHospital.Doctors)
+            {
+                <p>Dr @doctor.Initials @doctor.LastName</p>
+            }
         }
+
+
     }
+
 
 </div>
 <hr style="border-top: dotted 1px;"/>
 <div>
-    <h4 style="text-align: center">WARD DETAILS</h4>
-    @foreach (var hospital in Model)
-    {
-        <table class="table">
-            <thead>
+    <h4 style="text-align: center;font-weight: bold">WARD DETAILS</h4>
+
+    <table class="table">
+        <thead>
+        <tr>
+
+            <th >WARD NUMBER</th>
+            <th >NUMBER OF BEDS IN WARD</th>
+            <th >NUMBER OF BEDS OCCUPIED</th>
+
+
+        </tr>
+        </thead>
+        @foreach (var ward in Model.Wards)
+        {
+            var totalOccupied = 0;
             <tr>
+                <td>@ward.Name</td>
+                <td>@ward.Beds.Count</td>
+                <td>
+                    @foreach (var bed in ward.Beds)
+                    {
+                        if (bed.Occupied.Contains("Yes"))
+                        {
+                            totalOccupied++;
+                        }
 
-                <th >WARD NUMBER</th>
-                <th >NUMBER OF BEDS IN WARD</th>
-                <th >NUMBER OF BEDS OCCUPIED</th>
-
-
+                    }
+                    @totalOccupied 
+                </td>
             </tr>
-            </thead>
-            @foreach (var ward in hospital.Wards)
-            {
-                <tr>
-                    <td>@ward.Name</td>
-                    <td>@ward.Beds.Count</td>
-                    <td>2</td>
+        }
 
+    </table>
 
-
-                </tr>
-            }
-
-        </table>
-    }
 </div>

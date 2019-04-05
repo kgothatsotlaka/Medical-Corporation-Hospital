@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace Medical_Corporation_Hospital.Core.Domain
 {
-    public class Hospital
+    public class Hospital : IEnumerable
     {
         public Hospital()
         {
@@ -18,9 +19,12 @@ namespace Medical_Corporation_Hospital.Core.Domain
         public int CityId { get; set; }
        public virtual ICollection<Patient> Patients { get; set; }
         public virtual ICollection<Doctor> Doctors { get; set; }
+        //public Doctor DoctorId { get; set; }
 
 
-
-
+        public IEnumerator GetEnumerator()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
