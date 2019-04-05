@@ -23,21 +23,31 @@ namespace Medical_Corporation_Hospital.Controllers
        
         public ActionResult Hospital(string name = "Mediclinic Muelmed")
         {
-            
+            //Hospital
             var hospital = _context.Hospitals.Single(h => h.Name.Contains(name));
-           
             var hospitalId = hospital.Id;
 
-
-            var hospitalCityId = hospital.CityId;
+            //City
+            // One City-Many Hospitals
+            var hospitalCityId = hospital.CityId; //Doctor Entity has CityId property
             var city = _context.Cities.Single(c => c.Id == hospitalCityId);
 
+            //Wards
+            //One Hospital- Many Wards
+            //Join Wards with Beds 
+            var wards = _context.Wards
+                                .Include(w=>w.Beds)
+                                .Where(w => w.HospitalId == hospitalId);
 
-            var wards = _context.Wards.Include(w=>w.Beds).Where(w => w.HospitalId == hospitalId);
+         
+            //Doctor
+            //Many hospital- Many Doctors
+            //In this case, One Hospital - Many Doctors
 
-          //  var worksAt = _context.Doctors.Include(h => h.Hospitals).Where(h => h.Hospitals.Contains(d=>d.Id == hospitalId);
-
-          var worksAt = _context.Hospitals.Include(h => h.Doctors).Where(h => h.Id == hospitalId).ToList();
+            var worksAt = _context.Hospitals
+                                        .Include(h => h.Doctors)
+                                        .Where(h => h.Id == hospitalId)
+                                        .ToList();
 
             var hospitalDetails = new HospitalDetailsViewModel
             {
@@ -51,6 +61,37 @@ namespace Medical_Corporation_Hospital.Controllers
             };
 
             return View(hospitalDetails );
+        }
+
+        public ActionResult Patient(string name= "Jacob Zuma")
+        {
+            var patient = _context.Patients.Single(p => p.FullName.Contains(name));
+            var patientId = patient.Id;
+
+            var appointments = _context.Patients.Include(p => p.Doctors).Where(p => p.Id == patientId).ToList();
+
+            
+
+            var patientHospitalId = patient.HospitalId;
+            var admitted = _context.Hospitals.Single(h => h.Id == patientHospitalId);
+
+            var patientWardId = patient.WardId;
+            var patientward = _context.Wards.Single(w => w.Id == patientWardId);
+
+            var patientBedId = patient.Bed;
+            var patientBed = _context.Beds.First(b => b.Occupied.Contains("Yes"));
+
+
+            var patientDetails = new PatientDetailsViewModel
+            {
+                Patient = patient,
+                Appointments = appointments,
+                Hospital = admitted,
+                Ward = patientward,
+                Bed =patientBed
+            };
+
+            return View(patientDetails);
         }
     }
 }

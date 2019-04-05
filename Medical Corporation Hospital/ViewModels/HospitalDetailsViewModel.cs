@@ -10,8 +10,8 @@ namespace Medical_Corporation_Hospital.ViewModels
     {
         public Hospital Hospital { get; set; }
         public IEnumerable<Ward> Wards { get; set; }
-        public List<Bed> Beds { get; set; }
-        public ICollection<Hospital> WorksAt { get; set; }
+       // public List<Bed> Beds { get; set; }
+        public IEnumerable<Hospital> WorksAt { get; set; }
         public City City { get; set; }
        
 

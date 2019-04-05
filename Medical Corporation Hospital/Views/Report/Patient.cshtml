@@ -1,0 +1,50 @@
+﻿@model Medical_Corporation_Hospital.ViewModels.PatientDetailsViewModel
+@{
+    ViewBag.Title = "Patient";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div style="text-align: center">
+    <div>
+        <h4 style="font-weight: bold">PATIENT DETAILS</h4>
+        <text>PATIENT NAME: @Model.Patient.FullName </text><br />
+        <text>ADMISSION DATE: @Model.Patient.AdmissionTime</text><br />
+        <text>ADDRESS: @Model.Patient.Address</text><br />
+        <text>TELEPHONE: @Model.Patient.Telephone</text><br />
+    </div>
+</div>
+<hr style="border-top: dotted 1px;" />
+
+<div style="text-align: center">
+    <div>
+        <h4 style="font-weight: bold">HOSPITAL </h4>
+        <text>HOSPITAL NAME: @Model.Hospital.Name</text><br />
+        <text>ADMISSION DATE: @Model.Patient.AdmissionTime</text><br />
+        <text>WARD NUMBER: @Model.Ward.Name</text><br />
+        <text>BED NUMBER: @Model.Bed.Number</text><br />
+    </div>
+</div>
+<hr style="border-top: dotted 1px;" />
+<div style="text-align: center">
+    <div>
+        <h4 style="font-weight: bold">DOCTORS </h4>
+        @foreach (var appointment in Model.Appointments)
+        {
+            if (appointment.FullName.Contains(Model.Patient.FullName))
+            {
+                foreach (var doctor in appointment.Doctors)
+                {
+                    <p>Dr @doctor.Initials @doctor.LastName</p>
+                }
+            }
+        }
+
+        
+    </div>
+</div>
+
+
+
+<hr style="border-top: dotted 1px;" />
+
