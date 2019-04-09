@@ -1,0 +1,39 @@
+﻿@model Medical_Corporation_Hospital.ViewModels.DoctorDetailsViewModel
+@{
+    ViewBag.Title = "Doctor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="text-align: center">
+    <div>
+        <h4 style="font-weight: bold">DOCTOR DETAILS</h4>
+        <text>DOCTOR NAME: Dr @Model.Doctor.Initials @Model.Doctor.LastName </text><br />
+        <text>ADDRESS: @Model.Doctor.Address</text><br />
+        <text>TELEPHONE: @Model.Doctor.Telephone</text><br />
+    </div>
+</div>
+
+
+
+<hr style="border-top: dotted 1px;" />
+<div style="text-align: center">
+    <div>
+        <h4 style="font-weight: bold">PATIENTS </h4>
+        @foreach(var doctorPatient in @Model.Patients)
+        {
+            if (doctorPatient.Id.Equals(Model.Doctor.Id))
+            {
+                foreach (var patient in doctorPatient.Patients)
+                {
+                    <p>@patient.FullName</p>
+                }
+            }
+        }
+
+
+    </div>
+</div>
+
+
+
+<hr style="border-top: dotted 1px;" />

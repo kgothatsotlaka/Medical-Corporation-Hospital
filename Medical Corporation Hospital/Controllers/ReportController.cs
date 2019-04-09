@@ -93,5 +93,26 @@ namespace Medical_Corporation_Hospital.Controllers
 
             return View(patientDetails);
         }
+
+        public ActionResult Doctor(string lastName = "Ledwaba")
+        {
+            var doctor = _context.Doctors.Single(d => d.LastName.Contains(lastName));
+            var doctorId = doctor.Id;
+
+            var patients = _context.Doctors
+                .Include(d => d.Patients)
+                .Where(d => d.Id == doctorId).ToList();
+                                      
+
+            var doctorDetails = new DoctorDetailsViewModel
+            {
+                Doctor = doctor,
+                Patients = patients
+
+            };
+
+             
+            return View(doctorDetails);
+        }
     }
 }

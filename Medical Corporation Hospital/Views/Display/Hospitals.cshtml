@@ -4,36 +4,55 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Hospitals</h2>
+    <div class="row">
+        <h2>Hospitals</h2>
+        <button
+
+            class="btn btn-primary">
+            Add New Hospital
+            @Html.ActionLink(" ", "New", "Hospital")
+        </button>
+    </div>
+
+
 <table class="table">
-<thead>
-<tr>
-    
-    <th >Name</th>
-    <th >City</th>
-    <th >Wards</th>
-    <th >Doctors</th>
-    <th >Patients</th>
-
-
-</tr>
-</thead>
-<tbody>
-@foreach (var hospital in Model)
-{
-    
+    <thead>
     <tr>
-           
-        <td >@hospital.Name</td>        
-        <td >@hospital.City.Name</td> 
-        <td >@hospital.Wards.Count</td> 
-        <td >@hospital.Doctors.Count</td> 
-        <td >@hospital.Patients.Count</td> 
 
-        .
+        <th >Name</th>
+        <th >City</th>
+        <th >Wards</th>
+        <th >Doctors</th>
+        <th >Patients</th>
+        <th >Manage</th>
+
 
     </tr>
+    </thead>
+    <tbody>
+    @foreach (var hospital in Model)
+    {
+        <tr>
 
-}
-</tbody>
+            <td >@hospital.Name</td>
+            <td >@hospital.City.Name</td>
+            <td >@hospital.Wards.Count</td>
+            <td >@hospital.Doctors.Count</td>
+            <td >@hospital.Patients.Count</td>
+            <td>
+                <button type="submit"
+                        class="btn btn-warning">
+                    Modify
+                </button>
+                <button type="submit"
+                        class="btn btn-danger">
+                    Delete
+                </button>
+
+            </td>
+
+
+        </tr>
+    }
+    </tbody>
 </table>

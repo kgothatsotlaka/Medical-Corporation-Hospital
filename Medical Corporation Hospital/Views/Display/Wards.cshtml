@@ -1,4 +1,4 @@
-﻿@model Medical_Corporation_Hospital.ViewModels.HospitalDetailsViewModel
+﻿@model IEnumerable<Medical_Corporation_Hospital.Core.Domain.Ward>
 @{
     ViewBag.Title = "Wards";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,27 +7,31 @@
 <h2>Wards</h2>
 <table class="table">
     <thead>
-    <tr>
-        <th >Id</th>
-        <th >Ward Name</th>
-        <th >no Of Beds</th>
-        <th >Hospital Name</th>
-       
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var ward in Model.ward)
-    {
-    
         <tr>
-            <td>@ward.WardId</td>     
-            <td>@ward.WardName</td>
-            <td>@ward.NoOfBeds</td>
-            <td>@ward.HospitalName</td>
+
+            <th>Ward Name</th>
+            <th>Hospital Name</th>
+            <th>No of Beds</th>
+            <th>No of Patients</th>
+          
 
         </tr>
+    </thead>
+    <tbody>
+        @foreach (var ward in Model)
+        {
 
-    }
+            <tr>
+
+                <td>@ward.Name</td>
+                <td>@ward.Hospital.Name</td>
+                <td>@ward.Beds.Count</td>
+                <td>@ward.Patients.Count</td>
+              
+
+            </tr>
+
+        }
     </tbody>
 </table>
 

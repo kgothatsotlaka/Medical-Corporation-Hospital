@@ -14,7 +14,12 @@ namespace Medical_Corporation_Hospital.Persistence.EntityConfigurations
 
             HasRequired(b => b.Ward)
                 .WithMany(w => w.Beds)
-                .HasForeignKey(w => w.wardId)
+                .HasForeignKey(w => w.WardId)
+                .WillCascadeOnDelete(false);
+
+            HasRequired(b=>b.Hospital)
+                .WithMany(h=>h.Beds)
+                .HasForeignKey(h=>h.HospitalId)
                 .WillCascadeOnDelete(false);
 
             HasOptional(b => b.Patient)

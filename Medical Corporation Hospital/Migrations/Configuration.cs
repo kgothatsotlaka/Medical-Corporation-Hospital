@@ -139,7 +139,7 @@ namespace Medical_Corporation_Hospital.Migrations
                 new Ward
                 {
                     Id = 2,
-                    Name = "MM3",
+                    Name = "MM2",
                     HospitalId = 1
                 },
                 new Ward
@@ -157,52 +157,7 @@ namespace Medical_Corporation_Hospital.Migrations
 
             #endregion
 
-            #region Add Beds
-
-            var beds = new List<Bed>
-            {
-
-                new Bed
-                {
-                    Id = 1,
-                    Number = 1,
-                    Occupied = "No",
-                    wardId = 1
-                },
-
-
-                new Bed
-                {
-                    Id = 2,
-                    Number = 2,
-                    Occupied = "Yes",
-                    wardId = 1
-
-                },
-                new Bed
-                {
-                    Id = 3,
-                    Number = 3,
-                    Occupied = "Yes",
-                    wardId = 2
-
-                },
-                new Bed
-                {
-                    Id = 4,
-                    Number = 4,
-                    Occupied = "Yes",
-                    wardId = 2
-
-                }
-
-
-
-            };
-
-            foreach (var bed in beds) context.Beds.AddOrUpdate(b => b.Id, bed);
-
-            #endregion
+            
 
             #region Add Patients
 
@@ -217,6 +172,7 @@ namespace Medical_Corporation_Hospital.Migrations
                     Telephone = "0123456789",
                     HospitalId = 1,
                     WardId = 1,
+                
                     
 
 
@@ -236,8 +192,60 @@ namespace Medical_Corporation_Hospital.Migrations
 
             #endregion
 
+            #region Add Beds
 
-           
+            var beds = new List<Bed>
+            {
+
+                new Bed
+                {
+                    Id = 1,
+                    Number = 1,
+                    Occupied = "Yes",
+                    WardId = 1,
+                    HospitalId = 1,
+                    Patient = patients.Find(p=>p.FullName.Contains("Jacob Zuma"))
+                },
+
+
+                new Bed
+                {
+                    Id = 2,
+                    Number = 2,
+                    Occupied = "No",
+                    WardId = 1,
+                    HospitalId = 1
+
+                },
+                new Bed
+                {
+                    Id = 3,
+                    Number = 3,
+                    Occupied = "No",
+                    WardId = 2,
+                    HospitalId = 1
+
+                },
+                new Bed
+                {
+                    Id = 4,
+                    Number = 4,
+                    Occupied = "No",
+                    WardId = 2,
+                    HospitalId =1
+
+                }
+
+
+
+            };
+
+            foreach (var bed in beds) context.Beds.AddOrUpdate(b => b.Id, bed);
+
+            #endregion
+
+
+
 
 
 

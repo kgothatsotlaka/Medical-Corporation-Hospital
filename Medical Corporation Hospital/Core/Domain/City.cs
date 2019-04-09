@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc.Html;
 
 namespace Medical_Corporation_Hospital.Core.Domain
 {
@@ -8,6 +10,7 @@ namespace Medical_Corporation_Hospital.Core.Domain
         {
             Hospitals =  new HashSet<Hospital>();
         }
+       
         public int Id { get; set; }
         public string Name { get; set; }
         public string Province { get; set; }

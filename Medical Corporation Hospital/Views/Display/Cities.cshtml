@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Medical_Corporation_Hospital.Core.Domain.City>
+
+@{
+    ViewBag.Title = "Cities";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Wards</h2>
+<table class="table">
+    <thead>
+    <tr>
+
+        <th>City Name</th>
+        <th>Province </th>
+        <th>Country</th>
+        <th>No of Hospitals</th>
+          
+
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var city in Model)
+    {
+
+        <tr>
+
+            <td>@city.Name</td>
+            <td>@city.Province</td>
+            <td>@city.Country</td>
+            <td>@city.Hospitals.Count</td>
+            
+              
+
+        </tr>
+
+    }
+    </tbody>
+</table>
+
+
