@@ -1,0 +1,14 @@
+Steps to Add A Form
+
+1. Create a controller
+	Add a new action to controller
+	pull dbset in action
+	Create ModelView if more than one entity required
+	
+2. Validation
+	1. Create Data Annotations in your entity
+	2. if(!modelState.Valid)
+		Create ViewModel Object and pass current user data
+		Return to form with user data
+		HTML.ValidationMassageFor
+	3.

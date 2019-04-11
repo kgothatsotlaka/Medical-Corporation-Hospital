@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Medical_Corporation_Hospital.Core.Domain.Patient>
+
+@{
+    ViewBag.Title = "Patients";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Patients</h2>
+
+<button type="button" class="btn btn-primary">@Html.ActionLink("Admit New Patient", "New", "Patients")</button>
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>Patient Full Name</th>
+            <th>Patient Admission Date</th>
+            <th>Patient Telephone</th>
+            <th>Patient Address</th>
+            <th>Patient Hospital</th>
+            <th>Patient Ward Name</th>
+            <th>Patient bed Number</th>
+            <th>Patient No of Doctors</th>
+            
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var patient in Model)
+        {
+
+            <tr>
+
+                <td>@patient.FullName</td>
+                <td>@patient.AdmissionTime</td>
+                <td>@patient.Telephone</td>
+                <td>@patient.Address</td>
+                <td>@patient.Hospital.Name</td>
+                <td>@patient.Ward.Name</td>
+                <td>@patient.Bed.Number</td>
+                <td>@patient.Doctors.Count</td>
+                
+
+            </tr>
+
+        }
+    </tbody>
+</table>
+

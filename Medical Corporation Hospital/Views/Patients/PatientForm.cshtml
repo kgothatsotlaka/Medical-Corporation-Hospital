@@ -1,0 +1,52 @@
+﻿@model Medical_Corporation_Hospital.ViewModels.PatientViewModel
+
+@{
+    ViewBag.Title = "PatientForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add New Patient</h2>
+
+@using (Html.BeginForm("Save", "Patients"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.patient.FullName)
+        @Html.TextBoxFor(m => m.patient.FullName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.patient.Address)
+        @Html.TextBoxFor(m => m.patient.Address, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.patient.Telephone)
+        @Html.TextBoxFor(m => m.patient.Telephone, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.patient.AdmissionTime)
+        @Html.TextBoxFor(m => m.patient.AdmissionTime, new { @class = "form-control" , @type="date"})
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.patient.HospitalId)
+        @Html.DropDownListFor(m => m.patient.HospitalId,
+            new SelectList(Model.Hospitals, "Id", "Name", "Select Hospital"),
+            new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.patient.WardId)
+        @Html.DropDownListFor(m => m.patient.WardId, 
+            new SelectList(Model.wards, "Id", "Name", "Select Ward"), 
+            new { @class = "form-control" })
+    </div>
+
+   
+
+    @Html.HiddenFor(m => m.patient.Id)
+   
+    <button type="submit" class="btn btn-primary">Add Patient</button>
+
+
+
+}
+
+

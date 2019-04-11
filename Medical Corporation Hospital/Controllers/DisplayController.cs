@@ -66,5 +66,30 @@ namespace Medical_Corporation_Hospital.Controllers
 
             return View(city);
         }
+
+        public ActionResult Doctors()
+        {
+            var doctors = _context.Doctors
+                .Include(h => h.Hospitals)
+                .Include(d => d.Patients).ToList();
+
+
+            return View(doctors);
+        } public ActionResult Patients()
+        {
+            var doctors = _context.Patients
+                .Include(p => p.Doctors)
+                .Include(p=>p.Hospital)
+                .Include(p=>p.Ward)
+                .Include(p=>p.Bed)
+                .ToList();
+                
+               
+
+
+            return View(doctors);
+        }
+
+        
     }
 }

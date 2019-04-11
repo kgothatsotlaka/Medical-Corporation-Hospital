@@ -5,7 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Wards</h2>
+<h2>Cities</h2>
+<button type="button" class="btn btn-primary">@Html.ActionLink("Add New City", "New", "Cities")</button>
 <table class="table">
     <thead>
     <tr>
@@ -28,6 +29,10 @@
             <td>@city.Province</td>
             <td>@city.Country</td>
             <td>@city.Hospitals.Count</td>
+            <td> <button type="submit"
+                         class="btn btn-warning">
+                @Html.ActionLink("Update", "Edit", "Cities", new{id= city.Id}, null)
+            </button></td>
             
               
 

@@ -1,4 +1,4 @@
-﻿namespace Medical_Corporation_Hospital.Core.Domain
+﻿    namespace Medical_Corporation_Hospital.Core.Domain
 {
     public class Bed
     {

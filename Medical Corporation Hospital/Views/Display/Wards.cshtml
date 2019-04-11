@@ -5,6 +5,7 @@
 }
 
 <h2>Wards</h2>
+<button type="button" class="btn btn-primary">@Html.ActionLink("Add New Ward", "New", "Wards")</button>
 <table class="table">
     <thead>
         <tr>
@@ -27,6 +28,10 @@
                 <td>@ward.Hospital.Name</td>
                 <td>@ward.Beds.Count</td>
                 <td>@ward.Patients.Count</td>
+                <td> <button type="submit"
+                             class="btn btn-warning">
+                    @Html.ActionLink("Update", "Edit", "Wards", new{id= ward.Id}, null)
+                </button></td>
               
 
             </tr>

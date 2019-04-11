@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Medical_Corporation_Hospital.Core.Domain.Doctor>
+
+@{
+    ViewBag.Title = "Doctors";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Doctors</h2>
+
+<table class="table">
+    <thead>
+    <tr>
+
+        <th>Doctor's Initials</th>
+        <th>Doctor's Last Name</th>
+        <th>Doctor's Telephone</th>
+        <th>Doctor's Address</th>
+        <th>Doctor's No of Hospitals</th>
+        <th>Doctor's No of Patients</th>
+        
+          
+
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var doctor in Model)
+    {
+
+        <tr>
+
+            <td>@doctor.Initials</td>
+            <td>@doctor.LastName</td>
+            <td>@doctor.Telephone</td>
+            <td>@doctor.Address</td>
+            <td>@doctor.Hospitals.Count</td>
+            <td>@doctor.Patients.Count</td>
+          
+          
+              
+
+        </tr>
+
+    }
+    </tbody>
+</table>
+
+

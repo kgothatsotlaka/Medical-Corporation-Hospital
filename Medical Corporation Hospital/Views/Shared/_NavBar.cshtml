@@ -11,7 +11,7 @@
         
 
         <div class="navbar-collapse collapse">
-          
+
             <ul class="nav navbar-nav ">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Manage Asserts <span class="caret"></span></a>
@@ -20,6 +20,26 @@
                         <li>@Html.ActionLink("Wards", "Wards", "Display")</li>
                         <li>@Html.ActionLink("Beds", "Beds", "Display")</li>
                         <li>@Html.ActionLink("Cities", "Cities", "Display")</li>
+
+                    </ul>
+                </li>
+            </ul><ul class="nav navbar-nav ">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Human Resources <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Doctors", "Doctors", "Display")</li>
+                        <li>@Html.ActionLink("Patients", "Patients", "Display")</li>
+
+
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Create Appointment", "Hospital", "Report")</li>
+                        
 
                     </ul>
                 </li>

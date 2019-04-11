@@ -30,7 +30,7 @@ namespace Medical_Corporation_Hospital.Controllers
 
             return View("HospitalForm", viewModel);
         }
-
+        [HttpPost]
         public ActionResult Save(Hospital hospital)
         {
            
@@ -39,11 +39,36 @@ namespace Medical_Corporation_Hospital.Controllers
                 _context.Hospitals.Add(hospital);
 
             }
+            else
+            {
+                var hospitalInDb = _context.Hospitals.Single(h => h.Id == hospital.Id);
+
+                hospitalInDb.Name = hospital.Name;
+                hospitalInDb.CityId = hospital.CityId;
+
+            }
 
             _context.SaveChanges();
 
 
             return RedirectToAction("Hospitals", "Display");
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var hospital = _context.Hospitals.SingleOrDefault(h => h.Id == id);
+
+            if (hospital == null)
+            {
+                return HttpNotFound();
+            }
+
+            var viewModel = new HospitalFormViewModel
+            {
+                Hospital = hospital,
+                Cities = _context.Cities.ToList()
+            };
+            return View("HospitalForm", viewModel);
         }
     }
 }

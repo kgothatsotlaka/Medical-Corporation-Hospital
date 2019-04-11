@@ -1,0 +1,25 @@
+﻿@model Medical_Corporation_Hospital.ViewModels.WardFormViewModel
+
+@{
+    ViewBag.Title = "WardForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Ward</h2>
+
+@using(Html.BeginForm("Save", "Wards"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m=>m.Ward.HospitalId)
+        @Html.DropDownListFor(m=>m.Ward.HospitalId,new SelectList(Model.Hospitals,"Id", "Name", "Select Hospital"), new {@class="form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m=>m.Ward.Name)
+        @Html.TextBoxFor(m=>m.Ward.Name, new{@class="form-control"})
+    </div>
+   
+    @Html.HiddenFor(m=>m.Ward.Id)
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+
+
