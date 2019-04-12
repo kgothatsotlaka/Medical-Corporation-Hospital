@@ -35,7 +35,10 @@
                 <text>
                     @Html.ActionLink("Update", "Edit", "Cities", new {id = city.Id}, new {@class = "btn btn-warning"})
                 </text>
-                <text class="btn btn-danger">Danger</text>
+                <text >
+                    @Html.ActionLink("Delete", "Remove", "Cities", new {id = city.Id}, new {@class = "btn btn-danger", @onclick = "return confirm('Are sure wants to delete?');"})
+
+                </text>
             </td>
             
               

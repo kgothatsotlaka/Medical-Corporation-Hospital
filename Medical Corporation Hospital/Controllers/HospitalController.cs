@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Web;
@@ -69,6 +70,26 @@ namespace Medical_Corporation_Hospital.Controllers
                 Cities = _context.Cities.ToList()
             };
             return View("HospitalForm", viewModel);
+        }
+
+        public ActionResult Remove(int id)
+        {
+            var hospital = _context.Hospitals.SingleOrDefault(h => h.Id == id);
+
+            if (hospital != null)
+            {
+                hospital.Doctors = null;
+                hospital.Wards = null;
+                hospital.City = null;
+                hospital.Patients = null;
+                hospital.Beds = null;
+             
+
+                _context.Hospitals.Remove(hospital);
+            
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Hospitals", "Display");
         }
     }
 }

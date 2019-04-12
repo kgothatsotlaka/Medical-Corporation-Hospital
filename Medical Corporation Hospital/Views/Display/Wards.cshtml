@@ -33,7 +33,10 @@
                     <text>
                         @Html.ActionLink("Update", "Edit", "Wards", new {id = ward.Id}, new {@class = "btn btn-warning"})
                     </text>
-                    <text class="btn btn-danger">Danger</text>
+                    <text class="btn btn-danger">
+                        @Html.ActionLink("Delete", "Remove", "Wards", new {id = ward.Id}, new {@class = "btn btn-danger", @onclick = "return confirm('Are sure wants to delete?');"})
+
+                    </text>
                 </td>
               
 

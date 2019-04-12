@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -62,6 +63,24 @@ namespace Medical_Corporation_Hospital.Controllers
             };
 
             return View("WardForm", viewModel);
+        }
+
+        public ActionResult Remove(int id)
+        {
+            var ward = _context.Wards.SingleOrDefault(w => w.Id == id);
+
+            if (ward != null)
+            {
+                ward.Hospital = null;
+                ward.Beds = null;
+                ward.Patients = null;
+                _context.Wards.Remove(ward);
+                _context.SaveChanges();
+            }
+
+          
+
+            return RedirectToAction("Wards", "Display");
         }
     }
 }

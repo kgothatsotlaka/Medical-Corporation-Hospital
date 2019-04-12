@@ -86,5 +86,23 @@ namespace Medical_Corporation_Hospital.Controllers
 
             return View("BedForm", viewModel);
         }
+
+        public ActionResult Remove(int id)
+        {
+            var bed = _context.Beds.SingleOrDefault(b => b.Id == id);
+            if (bed != null)
+            {
+                bed.Ward = null;
+                bed.Hospital = null;
+                bed.Patient = null;
+                _context.Beds.Remove(bed);
+               
+            }
+
+            _context.SaveChanges(); 
+            
+
+            return RedirectToAction("Beds", "Display");
+        }
     }
 }

@@ -44,7 +44,10 @@
                     <text>
                         @Html.ActionLink("Update", "Edit", "Patients", new {id = patient.Id}, new {@class = "btn btn-warning"})
                     </text>
-                    <text class="btn btn-danger">Danger</text>
+                    <text>
+                        @Html.ActionLink("Discharge", "Remove", "Patients", new {id = patient.Id}, new {@class = "btn btn-danger"})
+
+                    </text>
                 </td>
                 
 

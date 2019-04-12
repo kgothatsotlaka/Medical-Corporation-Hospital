@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -50,6 +51,19 @@ namespace Medical_Corporation_Hospital.Controllers
             }
 
             return View("CityForm",city);
+        }
+
+        public ActionResult Remove(int id)
+        {
+            var city = _context.Cities.SingleOrDefault(c => c.Id == id);
+            if (city != null)
+            {
+                city.Hospitals = null;
+                _context.Cities.Remove(city);
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("Cities", "Display");
         }
     }
 }

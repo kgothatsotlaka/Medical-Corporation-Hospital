@@ -5,6 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Web;
 using System.Web.Mvc;
+using Medical_Corporation_Hospital.Core.Domain;
 using Medical_Corporation_Hospital.Persistence;
 using Medical_Corporation_Hospital.ViewModels;
 
@@ -24,7 +25,11 @@ namespace Medical_Corporation_Hospital.Controllers
         public ActionResult Hospital(string name = "Mediclinic Muelmed")
         {
             //Hospital
-            var hospital = _context.Hospitals.Single(h => h.Name.Contains(name));
+            var hospital = _context.Hospitals.SingleOrDefault(h => h.Name.Contains(name));
+            if (hospital == null)
+            {
+                return HttpNotFound();
+            }
             var hospitalId = hospital.Id;
 
             //City

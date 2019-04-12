@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -89,6 +90,27 @@ namespace Medical_Corporation_Hospital.Controllers
 
             };
             return View("PatientForm", viewModel);
+        }
+
+        public ActionResult Remove(int id)
+        {
+            var patient = _context.Patients.SingleOrDefault(p => p.Id == id);
+
+            if (patient != null)
+            {
+                patient.Hospital = null;
+                patient.Ward = null;
+                patient.Bed = null;
+                patient.Doctors = null;
+                //  patient = null;
+                _context.Patients.Remove(patient);
+            }
+
+
+         
+            _context.SaveChanges();
+
+            return RedirectToAction("Patients", "Display");
         }
     }
 }
