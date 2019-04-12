@@ -11,7 +11,7 @@ namespace Medical_Corporation_Hospital.Controllers
     public class CitiesController : Controller
     {
         // GET: Cities
-        protected readonly HospitalDbContext _context;
+        private readonly HospitalDbContext _context;
         public CitiesController()
         {
             _context = new HospitalDbContext();

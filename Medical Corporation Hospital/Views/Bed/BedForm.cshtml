@@ -1,0 +1,28 @@
+﻿    @model Medical_Corporation_Hospital.ViewModels.BedFormViewModel
+
+@{
+    ViewBag.Title = "BedForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h2>Add New Bed</h2>
+    @using(Html.BeginForm("Save", "Bed"))
+    {
+        <div class="form-group">
+            @Html.LabelFor(m=>m.Bed.HospitalId)
+            @Html.DropDownListFor(m=>m.Bed.HospitalId, new SelectList(Model.Hospitals, "Id", "Name", "Select Hospital"), new{@class="form-control"})
+            
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Bed.WardId)
+            @Html.DropDownListFor(m=>m.Bed.WardId, new SelectList(Model.Wards, "Id","Name", "Select Ward"), new {@class="form-control"})
+
+        </div>
+       
+        
+        @Html.HiddenFor(m=>m.Bed.Id)
+        <button class="btn btn-primary">Save</button>
+    }
+

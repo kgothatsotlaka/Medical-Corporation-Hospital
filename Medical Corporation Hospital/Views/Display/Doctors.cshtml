@@ -6,7 +6,7 @@
 }
 
 <h2>Doctors</h2>
-
+<p> @Html.ActionLink("Add New Doctor", "New","Doctors", null, new {@class="btn btn-primary"})</p>
 <table class="table">
     <thead>
     <tr>
@@ -17,6 +17,7 @@
         <th>Doctor's Address</th>
         <th>Doctor's No of Hospitals</th>
         <th>Doctor's No of Patients</th>
+        <th>Manage</th>
         
           
 
@@ -34,6 +35,12 @@
             <td>@doctor.Address</td>
             <td>@doctor.Hospitals.Count</td>
             <td>@doctor.Patients.Count</td>
+            <td> 
+                <text>
+                    @Html.ActionLink("Update", "Edit", "Doctors", new {id = doctor.Id}, new {@class = "btn btn-warning"})
+                </text>
+                <text class="btn btn-danger">Danger</text>
+            </td>
           
           
               

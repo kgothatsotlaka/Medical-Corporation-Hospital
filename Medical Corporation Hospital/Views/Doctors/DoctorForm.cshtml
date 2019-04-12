@@ -1,0 +1,33 @@
+﻿@model Medical_Corporation_Hospital.ViewModels.DoctorViewModel
+
+@{
+    ViewBag.Title = "DoctorForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Doctor</h2>
+
+@using (Html.BeginForm("Save", "Doctors"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.doctor.Initials )
+        @Html.TextBoxFor(m => m.doctor.Initials , new{@class="form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.doctor.LastName )
+        @Html.TextBoxFor(m => m.doctor.LastName , new{@class="form-control"})
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.doctor.Address)
+        @Html.TextBoxFor(m => m.doctor.Address , new{@class="form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.doctor.Telephone )
+        @Html.TextBoxFor(m => m.doctor.Telephone , new{@class="form-control"})
+    </div>
+
+    @Html.HiddenFor(m=>m.doctor.Id)
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+

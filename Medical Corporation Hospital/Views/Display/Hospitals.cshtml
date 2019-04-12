@@ -6,7 +6,7 @@
 
     <div class="row">
         <h2>Hospitals</h2>
-        <button type="button" class="btn btn-primary">@Html.ActionLink("Admit New Hospital", "New", "Hospital")</button>
+        <p >@Html.ActionLink("Add New Hospital", "New", "Hospital" ,null, new{@class="btn btn-primary"})</p>
     </div>
 
 
@@ -35,16 +35,13 @@
             <td >@hospital.Doctors.Count</td>
             <td >@hospital.Patients.Count</td>
             <td>
-                <button type="submit"
-                        class="btn btn-warning">
-                    @Html.ActionLink("Update", "Edit", "Hospital", new{id= hospital.Id}, null)
-                </button>
-                <button type="submit"
-                        class="btn btn-danger">
-                    Delete
-                </button>
 
+                <text>
+                    @Html.ActionLink("Update", "Edit", "Hospital", new {id = hospital.Id}, new {@class = "btn btn-warning"})
+                </text>
+                <text class="btn btn-danger">Danger</text>
             </td>
+            
 
 
         </tr>

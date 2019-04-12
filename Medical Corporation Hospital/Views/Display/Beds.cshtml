@@ -4,42 +4,54 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <h2>Beds</h2>
+<p>@Html.ActionLink("Add New Bed", "New", "Bed", null, new { @class = "btn btn-primary" })</p>
+
 <table class="table">
     <thead>
-    <tr>
-        
-        <th>Bed Number</th>
-        <th>Hospital</th>
-        <th>Ward</th>
-        <th>Occupied</th>
-        <th>Patient Name</th>
-
-
-    </tr>
-    </thead>
-    <tbody>
- @foreach(var bed in Model)
- { 
         <tr>
 
-            <td>@bed.Number</td>
-            <td>@bed.Hospital.Name</td>
-            <td>@bed.Ward.Name</td>
-            <td>@bed.Occupied</td>
-            @if (bed.Occupied.Contains("Yes"))
-            {
-                <td>@bed.Patient.FullName</td>
-            }
-            else
-            {
-                <td>No patient</td>
-            }
+            <th>Bed Number</th>
+            <th>Hospital</th>
+            <th>Ward</th>
+            <th>Occupied</th>
+            <th>Patient Name</th>
+            <th>Manage</th>
 
 
         </tr>
+    </thead>
+    <tbody>
+        @foreach (var bed in Model)
+        {
+            <tr>
 
-    }
+                <td>@bed.Number</td>
+                <td>@bed.Hospital.Name</td>
+                <td>@bed.Ward.Name</td>
+                <td>@bed.Occupied</td>
+                @if (bed.Occupied.Contains("Yes"))
+                {
+                    <td>@bed.Patient.FullName</td>
+                }
+                else
+                {
+                    <td>No patient</td>
+                }
+                
+                <td> 
+                    <text>
+                        @Html.ActionLink("Update", "Edit", "Bed", new {id = bed.Id}, new {@class = "btn btn-warning"})
+                    </text>
+                    <text class="btn btn-danger">Danger</text>
+                </td>
+
+
+
+            </tr>
+
+        }
     </tbody>
 </table>
 

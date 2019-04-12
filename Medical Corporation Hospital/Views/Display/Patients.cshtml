@@ -7,20 +7,21 @@
 
 <h2>Patients</h2>
 
-<button type="button" class="btn btn-primary">@Html.ActionLink("Admit New Patient", "New", "Patients")</button>
+<p>@Html.ActionLink("Admit New Patient", "New", "Patients",null, new{@class="btn btn-primary"})</p>
 
 <table class="table">
     <thead>
         <tr>
 
-            <th>Patient Full Name</th>
-            <th>Patient Admission Date</th>
-            <th>Patient Telephone</th>
-            <th>Patient Address</th>
-            <th>Patient Hospital</th>
-            <th>Patient Ward Name</th>
-            <th>Patient bed Number</th>
-            <th>Patient No of Doctors</th>
+            <th>Full Name</th>
+            <th>Admission Date</th>
+            <th>Telephone</th>
+            <th>Address</th>
+            <th>Hospital</th>
+            <th>Ward Name</th>
+            <th>bed Number</th>
+            <th>No of Doctors</th>
+            <th>Manage</th>
             
 
         </tr>
@@ -39,6 +40,12 @@
                 <td>@patient.Ward.Name</td>
                 <td>@patient.Bed.Number</td>
                 <td>@patient.Doctors.Count</td>
+                <td> 
+                    <text>
+                        @Html.ActionLink("Update", "Edit", "Patients", new {id = patient.Id}, new {@class = "btn btn-warning"})
+                    </text>
+                    <text class="btn btn-danger">Danger</text>
+                </td>
                 
 
             </tr>

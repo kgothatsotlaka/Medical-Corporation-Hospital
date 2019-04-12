@@ -6,7 +6,7 @@
 }
 
 <h2>Cities</h2>
-<button type="button" class="btn btn-primary">@Html.ActionLink("Add New City", "New", "Cities")</button>
+<p >@Html.ActionLink("Add New City", "New", "Cities", null, new{@class="btn btn-primary"})</p>
 <table class="table">
     <thead>
     <tr>
@@ -15,6 +15,7 @@
         <th>Province </th>
         <th>Country</th>
         <th>No of Hospitals</th>
+        <th>Manage</th>
           
 
     </tr>
@@ -29,10 +30,13 @@
             <td>@city.Province</td>
             <td>@city.Country</td>
             <td>@city.Hospitals.Count</td>
-            <td> <button type="submit"
-                         class="btn btn-warning">
-                @Html.ActionLink("Update", "Edit", "Cities", new{id= city.Id}, null)
-            </button></td>
+
+            <td> 
+                <text>
+                    @Html.ActionLink("Update", "Edit", "Cities", new {id = city.Id}, new {@class = "btn btn-warning"})
+                </text>
+                <text class="btn btn-danger">Danger</text>
+            </td>
             
               
 

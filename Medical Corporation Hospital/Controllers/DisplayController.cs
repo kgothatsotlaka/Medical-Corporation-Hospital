@@ -4,6 +4,7 @@ using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure.MappingViews;
 using System.Linq;
+using System.Web.UI.WebControls;
 using Medical_Corporation_Hospital.Core.Domain;
 using Medical_Corporation_Hospital.Persistence;
 
@@ -90,6 +91,7 @@ namespace Medical_Corporation_Hospital.Controllers
             return View(doctors);
         }
 
-        
+
+       
     }
 }

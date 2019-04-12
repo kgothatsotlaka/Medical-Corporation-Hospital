@@ -11,7 +11,7 @@ namespace Medical_Corporation_Hospital.Controllers
 {
     public class PatientsController : Controller
     {
-        protected readonly HospitalDbContext _context;
+        private readonly HospitalDbContext _context;
 
         public PatientsController()
         {
