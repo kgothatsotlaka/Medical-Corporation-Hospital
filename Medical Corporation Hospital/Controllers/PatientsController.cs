@@ -53,10 +53,42 @@ namespace Medical_Corporation_Hospital.Controllers
                 _context.Patients.Add(patient);
             }
 
+            else
+            {
+                var patientInDb = _context.Patients.Single(p => p.Id == patient.Id);
+
+                patientInDb.FullName = patient.FullName;
+                patientInDb.Address = patient.Address;
+                patientInDb.Telephone = patient.Telephone;
+                patientInDb.AdmissionTime = patient.AdmissionTime;
+                patientInDb.HospitalId = patient.HospitalId;
+                patientInDb.WardId = patient.WardId;
+            }
+
             _context.SaveChanges();
 
 
             return RedirectToAction("Patients", "Display");
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var patient = _context.Patients.SingleOrDefault(p => p.Id == id);
+
+            if (patient == null)
+            {
+                return HttpNotFound();
+            }
+
+            var viewModel = new PatientViewModel
+            {
+                patient = patient,
+                Hospitals = _context.Hospitals.ToList(),
+                wards = _context.Wards.ToList(),
+                Beds = _context.Beds.ToList()
+
+            };
+            return View("PatientForm", viewModel);
         }
     }
 }
