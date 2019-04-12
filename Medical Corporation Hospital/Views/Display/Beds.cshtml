@@ -25,6 +25,7 @@
     <tbody>
         @foreach (var bed in Model)
         {
+
             <tr>
 
                 <td>@bed.Number</td>
@@ -34,18 +35,22 @@
                 @if (bed.Occupied.Contains("Yes"))
                 {
                     <td>@bed.Patient.FullName</td>
+                    <td><p ><font color="red" ><strong>Bed is Occupied!</strong></font></p></td>
+                   
+                                             
                 }
                 else
                 {
                     <td>No patient</td>
+                    <td>
+                        <text>
+                            @Html.ActionLink("Update", "Edit", "Bed", new {id = bed.Id}, new {@class = "btn btn-warning"})
+                        </text>
+                        <text class="btn btn-danger">Danger</text>
+                    </td>
                 }
                 
-                <td> 
-                    <text>
-                        @Html.ActionLink("Update", "Edit", "Bed", new {id = bed.Id}, new {@class = "btn btn-warning"})
-                    </text>
-                    <text class="btn btn-danger">Danger</text>
-                </td>
+               
 
 
 

@@ -50,8 +50,16 @@ namespace Medical_Corporation_Hospital.Controllers
                     bed.Number = bedCount+1;
                 }
                
+               
 
                 _context.Beds.Add(bed);
+            }
+            else
+            {
+                var bedInDb = _context.Beds.Single(b => b.Id == bed.Id);
+
+                bedInDb.HospitalId = bed.HospitalId;
+                bedInDb.WardId = bed.WardId;
             }
 
             _context.SaveChanges();
@@ -59,5 +67,24 @@ namespace Medical_Corporation_Hospital.Controllers
             return RedirectToAction("Beds", "Display");
         }
 
+        public ActionResult Edit(int id)
+        {
+            var bed = _context.Beds.SingleOrDefault(b => b.Id == id);
+
+            if (bed == null)
+            {
+                return HttpNotFound();
+            }
+
+            var viewModel = new BedFormViewModel
+            {
+                Bed = bed,
+                Hospitals = _context.Hospitals.ToList(),
+                Wards = _context.Wards.ToList()
+
+            };
+
+            return View("BedForm", viewModel);
+        }
     }
 }
