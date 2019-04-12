@@ -1,0 +1,30 @@
+Steps to Add A Form
+
+1. Create a controller
+	Add a new action to controller
+	pull dbset in action
+	Create ModelView if more than one entity required
+	
+2. Validation
+	1. Create Data Annotations in your entity
+	2. if(!modelState.Valid)
+		Create ViewModel Object and pass current user data
+		Return to form with user data
+		HTML.ValidationMassageFor
+		
+	3. 
+	
+3. Edit Entity(Update in CRUD)
+	1. Create the Edit Action
+		select entity from database by the given database
+		If used view model. Pulled required entities
+			else return HTTPnotFound
+		pass that  data plus the FormView to View Method
+	2. Go to the Save Action	
+		implement the else part
+				select the enttiy from database which match the Id which was passed as a hidden field in the form
+			assign data in database with data from the form passed via the argument
+	
+		
+	
+	

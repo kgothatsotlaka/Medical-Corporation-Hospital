@@ -38,10 +38,42 @@ namespace Medical_Corporation_Hospital.Controllers
                 doctor.Patients = null;
                 _context.Doctors.Add(doctor);
             }
+            else
+            {
+                var doctorInDb = _context.Doctors.Single(d => d.Id == doctor.Id);
+
+                doctorInDb.Initials = doctor.Initials;
+                doctorInDb.LastName = doctor.LastName;
+                doctorInDb.Address = doctor.Address;
+                doctorInDb.Telephone = doctor.Telephone;
+
+
+
+
+
+            }
 
             _context.SaveChanges();
 
             return RedirectToAction("Doctors", "Display");
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var doctor = _context.Doctors.SingleOrDefault(d => d.Id == id);
+            if (doctor == null)
+            {
+                return HttpNotFound();
+            }
+
+            var viewModel = new DoctorViewModel
+            {
+                doctor = doctor,
+                Hospitals = _context.Hospitals.ToList(),
+                Patients = _context.Patients.ToList()
+            };
+
+            return View("DoctorForm", viewModel);
         }
     }
 }
