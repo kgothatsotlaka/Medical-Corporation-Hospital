@@ -167,6 +167,7 @@
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HospitalController.cs" />
+    <Compile Include="Controllers\HospitalsController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\WardsController.cs" />
@@ -278,6 +279,11 @@
     <Content Include="Views\Patients\PatientForm.cshtml" />
     <Content Include="Views\Bed\BedForm.cshtml" />
     <Content Include="Views\Doctors\DoctorForm.cshtml" />
+    <Content Include="Views\Hospitals\Create.cshtml" />
+    <Content Include="Views\Hospitals\Delete.cshtml" />
+    <Content Include="Views\Hospitals\Details.cshtml" />
+    <Content Include="Views\Hospitals\Edit.cshtml" />
+    <Content Include="Views\Hospitals\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

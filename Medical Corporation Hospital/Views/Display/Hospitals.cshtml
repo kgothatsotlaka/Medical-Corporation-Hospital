@@ -10,7 +10,7 @@
     </div>
 
 
-<table class="table">
+<table class="table table-hover">
     <thead>
     <tr>
 
@@ -28,7 +28,7 @@
     @foreach (var hospital in Model)
     {
         <tr>
-
+            
             <td >@hospital.Name</td>
             <td >@hospital.City.Name</td>
             <td >@hospital.Wards.Count</td>

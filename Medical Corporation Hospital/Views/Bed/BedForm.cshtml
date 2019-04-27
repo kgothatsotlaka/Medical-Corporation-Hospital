@@ -10,7 +10,8 @@
     {
         <div class="form-group">
             @Html.LabelFor(m=>m.Bed.HospitalId)
-            @Html.DropDownListFor(m=>m.Bed.HospitalId, new SelectList(Model.Hospitals, "Id", "Name", "Select Hospital"), new{@class="form-control"})
+            @Html.DropDownListFor(m=>m.Bed.HospitalId, 
+                new SelectList(Model.Hospitals, "Id", "Name", "Select Hospital"), new{@class="form-control"})
             
 
         </div>
