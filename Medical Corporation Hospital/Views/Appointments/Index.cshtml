@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Medical_Corporation_Hospital.Core.Domain.Hospital>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Appointments</h2>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Hospital</th>
+            <th>Patient</th>
+            <th>Doctor</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+
+    @foreach (var hospital in Model)
+    {
+        if (hospital.Patients.Count > 0)
+        {
+            <tr>
+                <td>@hospital.Name</td>
+                @foreach (var patient in hospital.Patients)
+                {
+                    <td>@patient.FullName</td>
+
+                    foreach (var doctor in hospital.Doctors)
+                    {
+                        if (patient.Doctors.Contains(doctor))
+                        {
+                            <td>@doctor.LastName</td>
+                        }
+                    }
+                }
+
+            </tr>
+        }
+    }
+    </tbody>
+</table>

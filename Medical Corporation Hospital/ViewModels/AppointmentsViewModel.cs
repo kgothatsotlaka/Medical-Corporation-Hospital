@@ -8,7 +8,9 @@ namespace Medical_Corporation_Hospital.ViewModels
 {
     public class AppointmentsViewModel
     {
-        public Doctor Doctor { get; set; }
+        public IEnumerable<Doctor> Doctors { get; set; }
         public IEnumerable<Patient> Patients { get; set; }
+        public IEnumerable<Hospital> Hospitals { get; set; }
+        
     }
 }

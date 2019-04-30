@@ -23,6 +23,7 @@ namespace Medical_Corporation_Hospital.Controllers
         }
 
         // GET: Hospitals/Details/5
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
