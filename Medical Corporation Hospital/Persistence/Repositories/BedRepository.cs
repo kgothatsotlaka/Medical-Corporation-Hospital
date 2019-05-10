@@ -9,7 +9,8 @@ namespace Medical_Corporation_Hospital.Persistence.Repositories
 {
     public class BedRepository: Repository<Bed>, IBedRepository
     {
-        public BedRepository(HospitalDbContext context):base(context)
+        public BedRepository(HospitalDbContext context)
+            :base(context)
         {
             
         }
