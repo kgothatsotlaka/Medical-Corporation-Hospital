@@ -18,27 +18,10 @@ namespace Medical_Corporation_Hospital.Persistence
         public virtual  DbSet<Hospital> Hospitals { get; set; }
         public virtual  DbSet<Patient> Patients { get; set; }
         public virtual  DbSet<Ward> Wards { get; set; }
-
+       
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            /*
-             * modelBuilder.Entity<Course>(entity =>
-            {
-                entity.Property(e => e.CourseName)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.HasOne(d => d.Teacher)
-                    .WithMany(p => p.Course)
-                    .HasForeignKey(d => d.TeacherId)
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .HasConstraintName("FK_Course_Teacher");
-            });
-             */
-
-           
             modelBuilder.Configurations.Add(new BedConfiguration());
             modelBuilder.Configurations.Add(new WardConfiguration());
            modelBuilder.Configurations.Add(new CityConfiguration());
