@@ -1,13 +1,12 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using Medical_Corporation_Hospital.Authentication;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
 
-[assembly: OwinStartup(typeof(Medical_Corporation_Hospital.Startup))]
+[assembly: OwinStartup(typeof(Startup))]
 
-namespace Medical_Corporation_Hospital
+namespace Medical_Corporation_Hospital.Authentication
 {
     public class Startup
     {

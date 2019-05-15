@@ -4,7 +4,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 
-namespace Medical_Corporation_Hospital
+namespace Medical_Corporation_Hospital.Authentication
 {
     public partial class Login : System.Web.UI.Page
     {

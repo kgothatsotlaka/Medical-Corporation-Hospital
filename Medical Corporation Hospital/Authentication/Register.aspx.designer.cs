@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Medical_Corporation_Hospital {
+namespace Medical_Corporation_Hospital.Authentication {
     
     
-    public partial class Login {
+    public partial class Register {
         
         /// <summary>
         /// form1 control.
@@ -22,31 +22,13 @@ namespace Medical_Corporation_Hospital {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// LoginStatus control.
+        /// StatusMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder LoginStatus;
-        
-        /// <summary>
-        /// StatusText control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal StatusText;
-        
-        /// <summary>
-        /// LoginForm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder LoginForm;
+        protected global::System.Web.UI.WebControls.Literal StatusMessage;
         
         /// <summary>
         /// UserName control.
@@ -67,12 +49,12 @@ namespace Medical_Corporation_Hospital {
         protected global::System.Web.UI.WebControls.TextBox Password;
         
         /// <summary>
-        /// LogoutButton control.
+        /// ConfirmPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder LogoutButton;
+        protected global::System.Web.UI.WebControls.TextBox ConfirmPassword;
     }
 }
