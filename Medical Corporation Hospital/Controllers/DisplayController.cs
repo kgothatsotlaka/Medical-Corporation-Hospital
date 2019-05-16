@@ -52,6 +52,7 @@ namespace Medical_Corporation_Hospital.Controllers
 
         public ActionResult Beds()
         {
+           
             var bed = _context.Beds
                 .Include(b => b.Ward)
                 .Include(b => b.Hospital)

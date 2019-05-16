@@ -10,49 +10,49 @@
 @using (Html.BeginForm("Save", "Patients"))
 {
     <div class="form-group">
-        @Html.LabelFor(m => m.patient.FullName)
-        @Html.TextBoxFor(m => m.patient.FullName, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.patient.FullName)
+        @Html.LabelFor(m => m.Patient.FullName)
+        @Html.TextBoxFor(m => m.Patient.FullName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Patient.FullName)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.patient.Address)
-        @Html.TextBoxFor(m => m.patient.Address, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.patient.Address)
+        @Html.LabelFor(m => m.Patient.Address)
+        @Html.TextBoxFor(m => m.Patient.Address, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Patient.Address)
 
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.patient.Telephone)
-        @Html.TextBoxFor(m => m.patient.Telephone, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.patient.Telephone)
+        @Html.LabelFor(m => m.Patient.Telephone)
+        @Html.TextBoxFor(m => m.Patient.Telephone, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Patient.Telephone)
 
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.patient.AdmissionTime)
-        @Html.TextBoxFor(m => m.patient.AdmissionTime, new { @class = "form-control", @type = "date" })
-        @Html.ValidationMessageFor(m => m.patient.AdmissionTime)
+        @Html.LabelFor(m => m.Patient.AdmissionTime)
+        @Html.TextBoxFor(m => m.Patient.AdmissionTime, new { @class = "form-control", @type = "date" })
+        @Html.ValidationMessageFor(m => m.Patient.AdmissionTime)
 
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.patient.HospitalId)
-        @Html.DropDownListFor(m => m.patient.HospitalId,
+        @Html.LabelFor(m => m.Patient.HospitalId)
+        @Html.DropDownListFor(m => m.Patient.HospitalId,
             new SelectList(Model.Hospitals, "Id", "Name", "Select Hospital"),
             new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.patient.HospitalId)
+        @Html.ValidationMessageFor(m => m.Patient.HospitalId)
 
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.patient.WardId)
-        @Html.DropDownListFor(m => m.patient.WardId,
+        @Html.LabelFor(m => m.Patient.WardId)
+        @Html.DropDownListFor(m => m.Patient.WardId,
             new SelectList(Model.wards, "Id", "Name", "Select Ward"),
             new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.patient.WardId)
+        @Html.ValidationMessageFor(m => m.Patient.WardId)
 
     </div>
 
    
 
-    @Html.HiddenFor(m => m.patient.Id)
+    @Html.HiddenFor(m => m.Patient.Id)
    
     <button type="submit" class="btn btn-primary">Add Patient</button>
 

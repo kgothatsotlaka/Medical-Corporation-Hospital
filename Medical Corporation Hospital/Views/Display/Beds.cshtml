@@ -34,10 +34,10 @@
                 <td>@bed.Occupied</td>
                 @if (bed.Occupied.Contains("Yes"))
                 {
-                    <td>@bed.Patient.FullName</td>
-                    <td><p ><h5 color="red" ><strong>Bed is Occupied!</strong></h5></p></td>
-                   
-                                             
+                     <td> @bed.Patient.FullName </td>
+                 <td><p ><h5 style="color:red">Bed is Occupied</h5></p></td>
+
+
                 }
                 else
                 {
