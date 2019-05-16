@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using StructureMap.Diagnostics;
 
 namespace Medical_Corporation_Hospital.Core.Domain
 {
@@ -15,10 +16,12 @@ namespace Medical_Corporation_Hospital.Core.Domain
 
         }
         public int Id { get; set; }
+        [Required (ErrorMessage = "Name Field Is Required.")]
         public string Name { get; set; }
         public virtual ICollection<Ward> Wards { get; set; }  //Elephant part done
         public virtual City City { get; set; } //Elephant part done
         [Display (Name="City")]
+        [Required ]
         public int CityId { get; set; }
        public virtual ICollection<Patient> Patients { get; set; }
         public virtual ICollection<Doctor> Doctors { get; set; }

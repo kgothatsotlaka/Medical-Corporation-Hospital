@@ -24,6 +24,7 @@ namespace Medical_Corporation_Hospital.Controllers
 
             var viewModel = new WardFormViewModel
             {
+                Ward = new Ward(),
                 Hospitals = hospitals
             };
             return View("WardForm", viewModel);
@@ -31,6 +32,16 @@ namespace Medical_Corporation_Hospital.Controllers
         [HttpPost]
         public ActionResult Save(Ward ward)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new WardFormViewModel
+                {
+                    Hospitals = _context.Hospitals.ToList(),
+                    Ward = ward
+                };
+
+                return View("WardForm", viewModel);
+            }
             if (ward.Id == 0)
             {
                 _context.Wards.Add(ward);

@@ -12,16 +12,23 @@ namespace Medical_Corporation_Hospital.Core.Domain
 
         }
         public int Id { get; set; }
+        [Required]
         [Display (Name="Full Name")]
         public string FullName { get; set; }
+        [Required]
         [Display(Name = "Admission Date")]
         public DateTime? AdmissionTime { get; set; }
+        [Required]
         public string Address { get; set; }
-        public  string Telephone { get; set; }
+        [Required]
+        public string Telephone { get; set; }
+       
         public virtual Hospital Hospital { get; set; }
+        [Required]
         [Display(Name = "Hospital")]
         public int HospitalId { get; set; }
         public virtual  Ward Ward { get; set; }
+        [Required]
         [Display(Name = "Ward")]
         public int WardId { get; set; }
 

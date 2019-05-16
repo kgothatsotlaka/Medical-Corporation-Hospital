@@ -24,6 +24,7 @@ namespace Medical_Corporation_Hospital.Controllers
 
             var viewModel = new DoctorViewModel
             {
+                doctor = new Doctor(),
                 Hospitals = hospitals,
                 Patients = patients
             };
@@ -32,6 +33,16 @@ namespace Medical_Corporation_Hospital.Controllers
 
         public ActionResult Save(Doctor doctor)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new DoctorViewModel
+                {
+                    doctor = doctor,
+                    Hospitals = _context.Hospitals.ToList(),
+                    Patients = _context.Patients.ToList()
+                };
+                return View("DoctorForm", viewModel);
+            }
             if (doctor.Id == 0)
             {
                 doctor.Hospitals = null;

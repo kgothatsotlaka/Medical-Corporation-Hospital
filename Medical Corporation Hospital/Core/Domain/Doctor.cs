@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Medical_Corporation_Hospital.Core.Domain
 {
@@ -10,9 +11,13 @@ namespace Medical_Corporation_Hospital.Core.Domain
             Patients =new HashSet<Patient>();
         }
         public int Id { get; set; }
+        [Required]
         public string Initials { get; set; }        
+        [Required]
         public string LastName { get; set; }
+        [Required]
         public string Address { get; set; }
+        [Required]
         public string Telephone { get; set; }
         public virtual ICollection<Hospital> Hospitals { get; set; }
        // public Hospital HospitalId { get; set; }

@@ -12,19 +12,25 @@
     <div class="form-group">
         @Html.LabelFor(m => m.doctor.Initials )
         @Html.TextBoxFor(m => m.doctor.Initials , new{@class="form-control"})
+        @Html.ValidationMessageFor(m=>m.doctor.Initials)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.doctor.LastName )
         @Html.TextBoxFor(m => m.doctor.LastName , new{@class="form-control"})
+        @Html.ValidationMessageFor(m=>m.doctor.LastName)
     </div>
 
     <div class="form-group">
         @Html.LabelFor(m => m.doctor.Address)
         @Html.TextBoxFor(m => m.doctor.Address , new{@class="form-control"})
+        @Html.ValidationMessageFor(m=>m.doctor.Address)
+
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.doctor.Telephone )
-        @Html.TextBoxFor(m => m.doctor.Telephone , new{@class="form-control"})
+        @Html.LabelFor(m => m.doctor.Telephone)
+        @Html.TextBoxFor(m => m.doctor.Telephone, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.doctor.Telephone)
+
     </div>
 
     @Html.HiddenFor(m=>m.doctor.Id)

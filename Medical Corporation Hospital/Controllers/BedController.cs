@@ -26,6 +26,7 @@ namespace Medical_Corporation_Hospital.Controllers
 
             var viewModel = new BedFormViewModel
             {
+                Bed = new Bed(),
                 Hospitals = hospital,
                 Wards = ward
             };
@@ -34,6 +35,18 @@ namespace Medical_Corporation_Hospital.Controllers
         [HttpPost]
         public ActionResult Save(Bed bed)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new BedFormViewModel
+                {
+                    Bed = bed,
+                    Hospitals = _context.Hospitals.ToList(),
+                    Wards = _context.Wards.ToList().ToList()
+                };
+                return View("bedForm", viewModel);
+            }
+                
+            
             if (bed.Id == 0)
             {
                 bed.Occupied = "No";

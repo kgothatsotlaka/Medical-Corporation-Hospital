@@ -27,6 +27,7 @@ namespace Medical_Corporation_Hospital.Controllers
 
             var viewModel = new PatientViewModel
             {
+                Patient = new Patient(),
                 Hospitals = hospital,
                 wards = ward,
                 Beds = bed,
@@ -37,39 +38,55 @@ namespace Medical_Corporation_Hospital.Controllers
         [HttpPost]
         public ActionResult Save(Patient patient)
         {
-            if (patient.Id == 0)
+            if (!ModelState.IsValid)
             {
-                
-                var wardId = patient.WardId;
-                var bed = _context.Beds.First(b => b.WardId == wardId && b.Occupied == "No");
-
-               
-                var bedInDbId = bed.Id;
-
-                patient.Bed = bed;
-                var bedInDb = _context.Beds.FirstOrDefault(b => b.Id == bedInDbId);
-                bedInDb.Occupied = "Yes";
-
-               
-                _context.Patients.Add(patient);
+                var viewModel = new PatientViewModel
+                {
+                    Patient = patient,
+                    Beds = _context.Beds.ToList(),
+                    Hospitals = _context.Hospitals.ToList(),
+                    wards = _context.Wards.ToList()
+                };
+                return View("PatientForm", viewModel);
             }
-
             else
             {
-                var patientInDb = _context.Patients.Single(p => p.Id == patient.Id);
 
-                patientInDb.FullName = patient.FullName;
-                patientInDb.Address = patient.Address;
-                patientInDb.Telephone = patient.Telephone;
-                patientInDb.AdmissionTime = patient.AdmissionTime;
-                patientInDb.HospitalId = patient.HospitalId;
-                patientInDb.WardId = patient.WardId;
+
+                if (patient.Id == 0)
+                {
+
+                    var wardId = patient.WardId;
+                    var bed = _context.Beds.First(b => b.WardId == wardId && b.Occupied == "No");
+
+
+                    var bedInDbId = bed.Id;
+
+                    patient.Bed = bed;
+                    var bedInDb = _context.Beds.FirstOrDefault(b => b.Id == bedInDbId);
+                    bedInDb.Occupied = "Yes";
+
+
+                    _context.Patients.Add(patient);
+                }
+
+                else
+                {
+                    var patientInDb = _context.Patients.Single(p => p.Id == patient.Id);
+
+                    patientInDb.FullName = patient.FullName;
+                    patientInDb.Address = patient.Address;
+                    patientInDb.Telephone = patient.Telephone;
+                    patientInDb.AdmissionTime = patient.AdmissionTime;
+                    patientInDb.HospitalId = patient.HospitalId;
+                    patientInDb.WardId = patient.WardId;
+                }
+
+                _context.SaveChanges();
+
+
+                return RedirectToAction("Patients", "Display");
             }
-
-            _context.SaveChanges();
-
-
-            return RedirectToAction("Patients", "Display");
         }
 
         public ActionResult Edit(int id)
@@ -83,7 +100,7 @@ namespace Medical_Corporation_Hospital.Controllers
 
             var viewModel = new PatientViewModel
             {
-                patient = patient,
+                Patient = patient,
                 Hospitals = _context.Hospitals.ToList(),
                 wards = _context.Wards.ToList(),
                 Beds = _context.Beds.ToList()

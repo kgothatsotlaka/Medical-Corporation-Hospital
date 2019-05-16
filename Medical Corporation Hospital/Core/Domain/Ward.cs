@@ -11,9 +11,11 @@ namespace Medical_Corporation_Hospital.Core.Domain
              Beds = new HashSet<Bed>(); // still not sure why we do this
         }
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
         public virtual Hospital Hospital { get; set; }
         [Display (Name = "Hospital")]
+        [Required]
         public int HospitalId { get; set; }
         public virtual ICollection<Patient> Patients { get; set; }
         public virtual ICollection<Bed> Beds { get; set; } //still not sure why we do this

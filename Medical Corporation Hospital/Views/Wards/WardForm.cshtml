@@ -12,10 +12,12 @@
     <div class="form-group">
         @Html.LabelFor(m=>m.Ward.HospitalId)
         @Html.DropDownListFor(m=>m.Ward.HospitalId,new SelectList(Model.Hospitals,"Id", "Name", "Select Hospital"), new {@class="form-control"})
+        @Html.ValidationMessageFor(m=>m.Ward.HospitalId)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m=>m.Ward.Name)
-        @Html.TextBoxFor(m=>m.Ward.Name, new{@class="form-control"})
+        @Html.LabelFor(m => m.Ward.Name)
+        @Html.TextBoxFor(m => m.Ward.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Ward.Name)
     </div>
    
     @Html.HiddenFor(m=>m.Ward.Id)

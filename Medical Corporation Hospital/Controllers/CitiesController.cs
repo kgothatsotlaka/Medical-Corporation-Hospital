@@ -25,6 +25,10 @@ namespace Medical_Corporation_Hospital.Controllers
         [HttpPost]
         public ActionResult Save(City city)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("CityForm");
+            }
             if (city.Id == 0)
             {
                 _context.Cities.Add(city);
